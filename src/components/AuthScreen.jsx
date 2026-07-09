@@ -7,6 +7,7 @@ export default function AuthScreen({ onLoginSuccess }) {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [isLoginPasswordVisible, setIsLoginPasswordVisible] = useState(false);
+  const [viewMode, setViewMode] = useState('login'); // 'login' | 'register'
 
   // Register Form States
   const [regName, setRegName] = useState('');
@@ -148,6 +149,7 @@ export default function AuthScreen({ onLoginSuccess }) {
       setRegEmail('');
       setRegPassword('');
       setRegPasswordConfirm('');
+      setViewMode('login');
       setCelebrationState(false);
       setRocketState('idle');
       setSuccessMsg('Kayıt başarılı! Şimdi giriş yapabilirsiniz.');
@@ -240,6 +242,9 @@ export default function AuthScreen({ onLoginSuccess }) {
 
             <button type="submit" className="card-submit-btn">Giriş</button>
           </form>
+          <div className="auth-toggle-link">
+            Hesabınız mı yok? <span className="toggle-span" onClick={() => setViewMode('register')}>Hemen kayıt olun</span>
+          </div>
         </div>
 
         {/* Center Column: 12 Mascots on the World Map */}
@@ -254,7 +259,7 @@ export default function AuthScreen({ onLoginSuccess }) {
         </div>
 
         {/* Right Column: Kayıt Ol Form Card with overlapping Dictator Mascot */}
-        <div className="auth-column-card register-card-wrapper">
+        <div className={`auth-column-card register-card-wrapper ${viewMode === 'login' ? 'mode-mascot-only' : 'mode-register-form'}`}>
           <h2 className="card-title">Kayıt Ol</h2>
           <form onSubmit={handleRegisterSubmit} className="auth-form-body">
             <div className="form-input-group">
@@ -345,12 +350,15 @@ export default function AuthScreen({ onLoginSuccess }) {
               {rocketState === 'launched' ? 'Kayıt Yapılıyor...' : 'Kayıt Ol'}
             </button>
           </form>
+          <div className="auth-toggle-link">
+            Zaten hesabınız var mı? <span className="toggle-span" onClick={() => setViewMode('login')}>Giriş yapın</span>
+          </div>
 
           {/* Dictator Mascot standing at the right bottom, overlapping card */}
-          <div className={`dictator-mascot-unified ${rocketState === 'launched' ? 'rocket-launched-state' : ''}`}>
+          <div className={`dictator-mascot-unified ${rocketState === 'launched' ? 'rocket-launched-state' : ''} ${viewMode === 'login' ? 'dictator-giant' : 'dictator-small'}`}>
             <div className="dictator-speech-bubble">Kuzey Kore füzemi fırlatırım ha! 🚀</div>
             <div className="dictator-label">Kuzey Kore</div>
-            <div style={{ width: '130px', height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="dictator-img-container" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img 
                 src={kimJongUnImg} 
                 alt="Kim Jong-un" 
@@ -418,6 +426,56 @@ export default function AuthScreen({ onLoginSuccess }) {
         .register-card-wrapper {
           position: relative;
           padding-bottom: 90px; /* Space for dictator mascot overlapping */
+          transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .register-card-wrapper.mode-mascot-only {
+          background: transparent;
+          box-shadow: none;
+          border-color: transparent;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          padding: 0;
+          min-height: 520px;
+        }
+
+        .register-card-wrapper.mode-mascot-only .card-title,
+        .register-card-wrapper.mode-mascot-only .auth-form-body,
+        .register-card-wrapper.mode-mascot-only .auth-toggle-link {
+          opacity: 0;
+          pointer-events: none;
+          height: 0;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+        }
+
+        .register-card-wrapper.mode-register-form .card-title,
+        .register-card-wrapper.mode-register-form .auth-form-body,
+        .register-card-wrapper.mode-register-form .auth-toggle-link {
+          opacity: 1;
+          pointer-events: auto;
+          transition: opacity 0.5s ease;
+        }
+
+        .auth-toggle-link {
+          margin-top: 16px;
+          font-size: 13px;
+          color: #64748b;
+          text-align: center;
+        }
+
+        .auth-toggle-link .toggle-span {
+          color: #2563eb;
+          font-weight: 600;
+          cursor: pointer;
+          transition: color 0.2s ease;
+        }
+
+        .auth-toggle-link .toggle-span:hover {
+          color: #1d4ed8;
+          text-decoration: underline;
         }
 
         .card-title {
@@ -448,7 +506,7 @@ export default function AuthScreen({ onLoginSuccess }) {
         }
 
         .form-input-group input {
-          font-family: var(--secondary-font);
+          font-family: var(--primary-font);
           font-size: 14px;
           padding: 10px 14px;
           border: 2px solid #e2e8f0;
@@ -519,18 +577,83 @@ export default function AuthScreen({ onLoginSuccess }) {
 
         /* Dictator Mascot Placement */
         .dictator-mascot-unified {
+          z-index: 100;
+          cursor: pointer;
+          transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .dictator-mascot-unified.dictator-giant {
+          position: relative;
+          bottom: 0;
+          right: auto;
+          width: 500px;
+          height: 500px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          margin: 0 auto;
+          animation: dictator-float 3.5s ease-in-out infinite;
+        }
+
+        .dictator-mascot-unified.dictator-giant .dictator-img-container {
+          width: 100%;
+          height: 85%;
+        }
+
+        .dictator-mascot-unified.dictator-giant .dictator-speech-bubble {
+          opacity: 1;
+          transform: translateY(0);
+          position: absolute;
+          bottom: 92%;
+          right: 50%;
+          transform: translateX(50%);
+          background: #ef4444;
+          color: #ffffff;
+          font-size: 16px;
+          padding: 8px 16px;
+          border-radius: 12px;
+          white-space: nowrap;
+          box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+          pointer-events: auto;
+          animation: bubble-pulse 2s infinite alternate;
+        }
+
+        .dictator-mascot-unified.dictator-giant .dictator-label {
+          position: static;
+          transform: none;
+          font-size: 14px;
+          padding: 3px 12px;
+          border-radius: 12px;
+          margin-top: 8px;
+        }
+
+        .dictator-mascot-unified.dictator-small {
           position: absolute;
           bottom: -45px;
           right: -10px;
           width: 130px;
           height: 130px;
-          z-index: 100;
-          cursor: pointer;
-          transition: transform 0.2s ease;
         }
 
-        .dictator-mascot-unified:hover {
+        .dictator-mascot-unified.dictator-small .dictator-img-container {
+          width: 130px;
+          height: 130px;
+        }
+
+        .dictator-mascot-unified.dictator-small:hover {
           transform: scale(1.08) rotate(-2deg);
+        }
+
+        @keyframes dictator-float {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-12px) rotate(2deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes bubble-pulse {
+          0% { transform: translateX(50%) scale(1); }
+          100% { transform: translateX(50%) scale(1.05); }
         }
 
         .dictator-label {
