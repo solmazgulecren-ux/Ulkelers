@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { visaQuestions } from '../data/visaQuestions';
 
 import russiaImg from '../assets/mascots/russia_chibi.png';
 import turkeyImg from '../assets/mascots/turkey_chibi.png';
@@ -358,6 +359,23 @@ export default function HomeScreen({ user, onLogout }) {
   const [extraClass, setExtraClass] = useState('');
   const [pupilShift, setPupilShift] = useState('translate(0, 0)');
 
+  // Visa states
+  const [approvedVisas, setApprovedVisas] = useState([]);
+  const [isVisaModalOpen, setIsVisaModalOpen] = useState(false);
+  const [visaStep, setVisaStep] = useState('select'); // 'select' | 'quiz' | 'result'
+  const [visaSelectedCountry, setVisaSelectedCountry] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showVisaAlert, setShowVisaAlert] = useState(false);
+
+  // Load visas from persistent storage
+  useEffect(() => {
+    if (user && user.email) {
+      const storedVisas = JSON.parse(localStorage.getItem(`visas_${user.email}`) || '[]');
+      setApprovedVisas(storedVisas);
+    }
+  }, [user]);
+
   // Mouse tracking to move large mascot eyes inside modal
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -367,6 +385,11 @@ export default function HomeScreen({ user, onLogout }) {
   };
 
   const openCountry = (key) => {
+    if (!approvedVisas.includes(key)) {
+      setShowVisaAlert(true);
+      setTimeout(() => setShowVisaAlert(false), 3000);
+      return;
+    }
     setSelectedKey(key);
     setMascotMood('Mutlu! 😊');
     setExtraClass('');
@@ -385,6 +408,38 @@ export default function HomeScreen({ user, onLogout }) {
     }, 1200);
   };
 
+  // Visa functions
+  const handleStartQuiz = (countryKey) => {
+    setVisaSelectedCountry(countryKey);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setVisaStep('quiz');
+  };
+
+  const handleAnswer = (optionIndex) => {
+    const questions = visaQuestions[visaSelectedCountry];
+    if (optionIndex === questions[currentQuestionIndex].answer) {
+      setScore(prev => prev + 1);
+    }
+    
+    if (currentQuestionIndex < 4) {
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      setVisaStep('result');
+    }
+  };
+
+  const handleFinishVisaProcess = (passed) => {
+    if (passed) {
+      const newVisas = [...approvedVisas, visaSelectedCountry];
+      setApprovedVisas(newVisas);
+      if (user && user.email) {
+        localStorage.setItem(`visas_${user.email}`, JSON.stringify(newVisas));
+      }
+    }
+    setVisaStep('select');
+  };
+
   const selectedCountry = selectedKey ? COUNTRY_PROFILES[selectedKey] : null;
 
   return (
@@ -396,6 +451,7 @@ export default function HomeScreen({ user, onLogout }) {
           <h1 className="brand-title">Dünya Rehberi</h1>
         </div>
         <div className="header-user-info">
+          <button className="visa-btn" onClick={() => { setIsVisaModalOpen(true); setVisaStep('select'); }}>🛂 Vize Al ve Gez</button>
           <span className="user-welcome">Hoş geldin, <strong>{user?.firstName || 'Kaşif'} {user?.lastName || ''}</strong>! 👋</span>
           <button className="logout-btn" onClick={onLogout}>Güvenli Çıkış</button>
         </div>
@@ -433,17 +489,97 @@ export default function HomeScreen({ user, onLogout }) {
                 <img 
                   src={MASCOT_IMAGES[key]} 
                   alt={data.name} 
-                  style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 2, position: 'relative' }} 
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 2, position: 'relative', filter: !approvedVisas.includes(key) ? 'grayscale(80%)' : 'none' }} 
                 />
+                {!approvedVisas.includes(key) && (
+                  <div style={{ position: 'absolute', zIndex: 3, fontSize: '40px', background: 'rgba(255,255,255,0.7)', borderRadius: '50%', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    🔒
+                  </div>
+                )}
               </div>
               <div className="country-card-footer">
-                <span>{data.mascotName}</span>
+                {approvedVisas.includes(key) ? (
+                  <span style={{ color: '#16a34a', fontWeight: 'bold' }}>✅ Vize Onaylandı</span>
+                ) : (
+                  <span style={{ color: '#ef4444', fontWeight: 'bold' }}>🚫 Vize Yok</span>
+                )}
                 <span className="explore-tag">Detayları Gör →</span>
               </div>
             </div>
           ))}
         </div>
       </main>
+
+      {/* Visa Alert Toast */}
+      {showVisaAlert && (
+        <div className="visa-alert-toast">
+          Bu ülkeye giriş yapmak için vize almanız gerekmektedir. Üstteki "Vize Al ve Gez" butonunu kullanın.
+        </div>
+      )}
+
+      {/* Visa Application Modal */}
+      {isVisaModalOpen && (
+        <div className="modal-backdrop" onClick={() => setIsVisaModalOpen(false)}>
+          <div className="modal-content visa-modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setIsVisaModalOpen(false)}>&times;</button>
+            
+            {visaStep === 'select' && (
+              <div className="visa-step-select">
+                <h2>🌍 Vize Başvurusu</h2>
+                <p>Hangi ülke için vize almak istiyorsunuz? (Sadece vizesi olmayan ülkeler listelenir)</p>
+                <div className="visa-country-grid">
+                  {Object.entries(COUNTRY_PROFILES).filter(([k]) => !approvedVisas.includes(k)).map(([k, d]) => (
+                    <button key={k} className="visa-country-btn" onClick={() => handleStartQuiz(k)}>
+                      <span style={{ fontSize: '24px' }}>{d.flag}</span>
+                      <span>{d.name}</span>
+                    </button>
+                  ))}
+                  {Object.keys(COUNTRY_PROFILES).filter(k => !approvedVisas.includes(k)).length === 0 && (
+                    <p style={{ gridColumn: '1 / -1', fontWeight: 'bold', color: '#16a34a' }}>Tebrikler! Tüm ülkelerin vizesini aldınız.</p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {visaStep === 'quiz' && visaSelectedCountry && (
+              <div className="visa-step-quiz">
+                <h2>{COUNTRY_PROFILES[visaSelectedCountry].flag} {COUNTRY_PROFILES[visaSelectedCountry].name} Vize Sınavı</h2>
+                <div className="quiz-progress">Soru {currentQuestionIndex + 1} / 5</div>
+                <h3 className="quiz-question">{visaQuestions[visaSelectedCountry][currentQuestionIndex].question}</h3>
+                <div className="quiz-options">
+                  {visaQuestions[visaSelectedCountry][currentQuestionIndex].options.map((opt, idx) => (
+                    <button key={idx} className="quiz-option-btn" onClick={() => handleAnswer(idx)}>
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {visaStep === 'result' && (
+              <div className="visa-step-result">
+                <h2>Sınav Sonucu</h2>
+                <div className="score-display" style={{ fontSize: '18px', margin: '10px 0' }}>Doğru Sayısı: <strong>{score} / 5</strong></div>
+                {score >= 3 ? (
+                  <div className="result-success">
+                    <span className="result-icon">🎉</span>
+                    <h3>Tebrikler!</h3>
+                    <p>{COUNTRY_PROFILES[visaSelectedCountry].name} vizesi onaylandı!</p>
+                    <button className="visa-action-btn success" onClick={() => handleFinishVisaProcess(true)}>Harika!</button>
+                  </div>
+                ) : (
+                  <div className="result-fail">
+                    <span className="result-icon">❌</span>
+                    <h3>Maalesef...</h3>
+                    <p>Vize başvurunuz reddedildi. En az 3 doğru yapmalısınız.</p>
+                    <button className="visa-action-btn" onClick={() => handleFinishVisaProcess(false)}>Tekrar Dene</button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Country Details Modal */}
       {selectedCountry && (
@@ -799,6 +935,131 @@ export default function HomeScreen({ user, onLogout }) {
           border-bottom: 1px solid #e2e8f0;
           font-size: 15px;
         }
+
+        /* Visa Features */
+        .visa-btn {
+          font-family: var(--primary-font);
+          font-size: 15px;
+          font-weight: 600;
+          color: #ffffff;
+          background: #2563eb;
+          padding: 8px 16px;
+          border: none;
+          border-radius: var(--border-radius-md);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+        }
+        .visa-btn:hover {
+          background: #1d4ed8;
+          transform: translateY(-1px);
+        }
+
+        .visa-alert-toast {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #ef4444;
+          color: #ffffff;
+          padding: 12px 24px;
+          border-radius: 30px;
+          font-weight: 600;
+          box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+          z-index: 9999;
+          animation: slide-down 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes slide-down {
+          0% { top: -50px; opacity: 0; }
+          100% { top: 20px; opacity: 1; }
+        }
+
+        .visa-modal {
+          max-width: 600px;
+          text-align: center;
+        }
+        .visa-country-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+          margin-top: 20px;
+        }
+        .visa-country-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #f8fafc;
+          border: 2px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 10px;
+          font-family: var(--primary-font);
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .visa-country-btn:hover {
+          background: #e0f2fe;
+          border-color: #38bdf8;
+        }
+        .visa-step-quiz .quiz-progress {
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 10px;
+        }
+        .visa-step-quiz .quiz-question {
+          font-size: 20px;
+          color: #0f172a;
+          margin-bottom: 24px;
+        }
+        .visa-step-quiz .quiz-options {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .quiz-option-btn {
+          background: #ffffff;
+          border: 2px solid #cbd5e1;
+          border-radius: 8px;
+          padding: 14px;
+          font-family: var(--primary-font);
+          font-size: 16px;
+          font-weight: 600;
+          color: #334155;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .quiz-option-btn:hover {
+          background: #f1f5f9;
+          border-color: #94a3b8;
+        }
+        .visa-step-result .result-icon {
+          font-size: 64px;
+          display: block;
+          margin: 20px 0;
+        }
+        .visa-action-btn {
+          font-family: var(--primary-font);
+          font-size: 16px;
+          font-weight: 600;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          color: #ffffff;
+          background: #64748b;
+          margin-top: 20px;
+          transition: all 0.2s ease;
+        }
+        .visa-action-btn:hover {
+          transform: translateY(-1px);
+        }
+        .visa-action-btn.success {
+          background: #16a34a;
+        }
+        .visa-action-btn.success:hover {
+          background: #15803d;
+        }
+
 
         .fun-fact-section {
           background: #f0fdf4;
