@@ -10,6 +10,25 @@ import MiniGamesModal from './MiniGamesModal';
 import CollectionScreen from './CollectionScreen';
 import './Home.css';
 
+import japanMascot from '../assets/mascots/japan_chibi.png';
+import franceMascot from '../assets/mascots/france_chibi.png';
+import ukMascot from '../assets/mascots/uk_chibi.png';
+import usaMascot from '../assets/mascots/usa_chibi.png';
+import greeceMascot from '../assets/mascots/greece_chibi.png';
+import bosniaMascot from '../assets/mascots/bosnia_chibi.png';
+import turkeyMascot from '../assets/mascots/turkey_chibi.png';
+import spainMascot from '../assets/mascots/spain_chibi.png';
+import italyMascot from '../assets/mascots/italy_chibi.png';
+import russiaRaw from '../assets/mascots/russia_chibi.png';
+import egyptMascot from '../assets/mascots/egypt_chibi.png';
+import brazilMascot from '../assets/mascots/brazil_chibi.png';
+import norwayMascot from '../assets/mascots/norway_chibi.png';
+import mexicoMascot from '../assets/mascots/mexico_chibi.png';
+import colombiaMascot from '../assets/mascots/colombia_chibi.png';
+import indiaMascot from '../assets/mascots/india_chibi.png';
+import germanyMascot from '../assets/mascots/germany_chibi.png';
+import chinaMascot from '../assets/mascots/china_chibi.png';
+
 // ===== ÜLKE PROFİLLERİ =====
 const COUNTRY_PROFILES = {
   turkey: {
@@ -25,6 +44,7 @@ const COUNTRY_PROFILES = {
     mascotName: "Türk Maslahat",
     interactiveActions: ["Çay Doldur ☕", "Simit Dağıt 🥯", "Ney Üfle 🎶"],
     image: '/images/turkey.jpg',
+    mascot: turkeyMascot,
     foods: {
       title: '🍲 Yöresel Yemekler',
       desc: 'Köz ateşinde pişirilen lokum gibi Adana ve İskender Kebapları ile incecik çıtır hamurlu Lahmacun Türk mutfağının incileridir. Şerbetli katmerli çıtır Antep Baklavası ise dünyaca ünlüdür.',
@@ -371,7 +391,8 @@ const COUNTRY_PROFILES = {
     color: "#DC2626",
     mascotName: "Japon Ninja",
     interactiveActions: ["Origami Yap 📘", "Çay Seremonisi ☕", "Ninja Hamlesi 💈"],
-    image: new URL('../assets/mascots/japan_chibi.png', import.meta.url).href,
+    image: '/images/japan.jpg',
+    mascot: japanMascot,
     foods: {
       title: '🍲 Yöresel Yemekler',
       desc: 'Taze balık ve pirinçle özenle hazırlanan Sushi ve Sashimi Japon mutfağının zirvesidir. Sıcak Ramen çorbası yumuşak yumurta ve karidesle servis edilir.',
@@ -400,7 +421,8 @@ const COUNTRY_PROFILES = {
     color: "#2563EB",
     mascotName: "Fransız Aşçı",
     interactiveActions: ["Baget Getir 🥖", "Şarap Aç 🍷", "Bere Tak 🧢"],
-    image: new URL('../assets/mascots/france_chibi.png', import.meta.url).href,
+    image: '/images/france.jpg',
+    mascot: franceMascot,
     foods: {
       title: '🥐 Yöresel Yemekler',
       desc: 'Kruvasan ve baget Fransız fırıncılığının sembolüdür. Kabuklu midye Moules-Frites ve soyuğa dayanmasıyla ünlü Coq au Vin ise Fransız mutfağının klasığidir.',
@@ -429,7 +451,8 @@ const COUNTRY_PROFILES = {
     color: "#1D4ED8",
     mascotName: "Kraliyet Muhafızı",
     interactiveActions: ["Çay Doldur ☕", "Nöbet Değiştir 💪", "Big Ben'i Çal 🔔"],
-    image: new URL('../assets/mascots/uk_chibi.png', import.meta.url).href,
+    image: '/images/uk.jpg',
+    mascot: ukMascot,
     foods: {
       title: '🍳 Yöresel Yemekler',
       desc: 'Tam İngiliz kahvaltısı (Full English Breakfast) yumurta, sosis, pastırma ve fasulyeden oluşur. Balık ve patates kızartması (Fish & Chips) ise ülkenin en ikonik sokak lezzetidir.',
@@ -458,7 +481,8 @@ const COUNTRY_PROFILES = {
     color: "#B45309",
     mascotName: "Amerikan Kahramanı",
     interactiveActions: ["Burger Ye 🍔", "Beyzbol At ⚾", "Kovboy Şapkası Tak 🤠"],
-    image: new URL('../assets/mascots/usa_chibi.png', import.meta.url).href,
+    image: '/images/usa.jpg',
+    mascot: usaMascot,
     foods: {
       title: '🍔 Yöresel Yemekler',
       desc: 'Klasik Amerikan Hamburgeri dünyaya yayılmış bir lezzettir. BBQ (Barbekü) kültürü özellikle güneyden gelir ve özel soslarla yavaş yavaş pişirilen etlerle servis edilir.',
@@ -487,7 +511,8 @@ const COUNTRY_PROFILES = {
     color: "#0284C7",
     mascotName: "Yunan Filozofu",
     interactiveActions: ["Zeytin Ye 🫒", "Bouzouki Çal 🎸", "Felsefe Yap 🫡"],
-    image: new URL('../assets/mascots/greece_chibi.png', import.meta.url).href,
+    image: '/images/greece.jpg',
+    mascot: greeceMascot,
     foods: {
       title: '🧆 Yöresel Yemekler',
       desc: 'Yufkadan yapılan kat kat börek Spanakopita (ıspanaklı börek), zeytinyağı, limon ve sarımsak soslu Souvlaki Yunan mutfağının vazgeçilmezleridir. Çok tathı Baklava ve tatlı dondurma Loukoumades çok sevilir.',
@@ -516,7 +541,8 @@ const COUNTRY_PROFILES = {
     color: "#7C3AED",
     mascotName: "Boşnak Kültür Elçisi",
     interactiveActions: ["Kahve Hazırla ☕", "Çarşıya Çık 🛍️", "Köprüden Atla 🎉"],
-    image: new URL('../assets/mascots/bosnia_chibi.png', import.meta.url).href,
+    image: '/images/bosnia.jpg',
+    mascot: bosniaMascot,
     foods: {
       title: '🥙 Yöresel Yemekler',
       desc: 'Cevapçiça ince kıyma köftesiyle servis edilen Boşnak\'ın vazgeçilmezi olup yanında soğan ve taze ekmekle sunulur. Burek ise kıymalı veya peynirli kıvrım böreğidir.',
@@ -957,7 +983,7 @@ const Home = ({ user, onLogout }) => {
               <div style={{ ...styles.stickyCharacterCard, borderColor: selectedCountry.color }} className="glass">
                 <h4 style={styles.charTitle}>{selectedCountry.name} Kültür Kartı</h4>
                 <div style={{ ...styles.mascotImageWrapper, borderColor: selectedCountry.color }}>
-                  <img src={selectedCountry.image} alt={selectedCountry.name} style={styles.mascotImage} />
+                  <img src={selectedCountry.mascot || selectedCountry.image} alt={selectedCountry.name} style={styles.mascotImage} />
                 </div>
                 <div className="mascot-mood-badge" style={{ marginBottom: '16px' }}>
                   Durum: <strong>{mascotMood}</strong>
@@ -965,9 +991,10 @@ const Home = ({ user, onLogout }) => {
                 <div className="interactive-widget" style={{ width: '100%' }}>
                   <p className="widget-title" style={{ color: '#94a3b8' }}>Etkileşime Geç!</p>
                   <div className="widget-buttons">
-                    <button className="widget-action-btn" onClick={() => setShowSpinWheel(true)} style={{ background: '#d97706' }}>🎡 Çark</button>
+                    <button className="widget-action-btn" onClick={() => setShowSpinWheel(true)} style={{ background: '#d97706' }}>🎡 Çark Çevir</button>
                     <button className="widget-action-btn" onClick={() => setShowMarket(true)} style={{ background: '#2563eb' }}>🛒 Pazar</button>
-                    <button className="widget-action-btn" onClick={() => setShowPhoto(true)} style={{ background: '#dc2626' }}>📸 Foto</button>
+                    <button className="widget-action-btn" onClick={() => setShowPhoto(true)} style={{ background: '#dc2626' }}>📸 Fotoğraf</button>
+                    <button className="widget-action-btn" onClick={() => setShowMiniGames(true)} style={{ background: '#16a34a' }}>🎮 Mini Oyunlar</button>
                   </div>
                 </div>
               </div>
