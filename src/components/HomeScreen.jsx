@@ -353,7 +353,74 @@ const COUNTRY_PROFILES = {
   }
 };
 
+const FUN_STORIES = {
+  russia: {
+    mascotName: "Misha (Rus Ayısı)",
+    story: "Misha (Rus Ayısı) bir gün o kadar çok bal yedi ki, Sibirya ormanlarında kış uykusuna yatmak yerine samovarda çay demleyip kutup ayılarıyla kardan adam yapmaya karar verdi. Kutup ayıları 'Misha, bu çay çok sıcak!' deyince, Sibirya soğuğunda çay saniyeler içinde dondurma oldu ve Rusya'nın ilk 'çay aromalı dondurması' icat edildi!",
+    history: "Rusya, 9. yüzyılda kurulan Kiev Knezliği ile tarih sahnesine çıkmış, Moğol istilasından sonra Moskova Knezliği etrafında toplanarak yükselmiştir. Korkunç İvan ile Çarlık ilan edilmiş ve yüzyıllar boyu Sibirya'ya doğru genişleyerek bugünkü devasa coğrafyasına ulaşmıştır."
+  },
+  turkey: {
+    mascotName: "Türk Maslahat",
+    story: "Türk Maslahat, çay tiryakiliğini abartıp Kapadokya'da sıcak hava balonunun içine dev bir çaydanlık yerleştirdi. Balondan yükselen buharlar tüm bölgeyi earl grey kokuttu. Aşağıdaki turistler simitlerini havaya doğru fırlatıp çay buharıyla ıslatarak yemeye çalıştılar!",
+    history: "Anadolu'nun kapıları 1071 Malazgirt Zaferi ile Türklere açılmıştır. Osmanlı İmparatorluğu'nun cihan şümul yükselişinin ardından, I. Dünya Savaşı sonrası Mustafa Kemal Atatürk önderliğinde başlatılan Kurtuluş Savaşı ile 1923 yılında Türkiye Cumhuriyeti kurulmuştur."
+  },
+  colombia: {
+    mascotName: "Kolombiya Kahvecisi",
+    story: "Kolombiya Kahvecisi papağanına salsa ritimleri öğretmeye çalışırken elindeki kahve çekirdeklerini yanlışlıkla dev bir zümrüt kazanına döktü. Papağan salsa yaparak çekirdekleri ezdi ve ortaya yeşil parlayan, içen herkesin salsa yapmaya başladığı efsanevi 'Zümrüt Kahvesi' çıktı!",
+    history: "Kolombiya topraklarında İspanyol sömürgesinden önce gelişmiş yerli Chibcha medeniyeti bulunuyordu. 16. yüzyılda İspanyollar tarafından sömürgeleştirilen ülke, 1819 yılında efsanevi lider Simon Bolivar önderliğinde Boyaca Savaşı ile bağımsızlığını kazanmıştır."
+  },
+  china: {
+    mascotName: "Çin Pandası",
+    story: "Çin Pandası bambu yemekten sıkılıp kung-fu hareketleriyle yelpaze sallayarak serinlemeye çalışırken, rüzgarın şiddetinden Çin Seddi'nin üzerinden uçup Yasak Şehir'in bahçesine iniş yaptı. İmparator onu görünce 'Yeni kung-fu ustamız bu!' diyerek saraydaki tüm bambuları ona rezerve etti.",
+    history: "Çin, binlerce yıllık hanedanlıklar tarihine sahiptir. Çin Seddi, kuzeydeki göçebe kavimlerin akınlarını durdurmak için yüzyıllar boyunca inşa edilmiştir. 1912'de son hanedanlık yıkılmış ve 1949'da modern Çin Halk Cumhuriyeti kurulmuştur."
+  },
+  india: {
+    mascotName: "Hindistan Fili",
+    story: "Hindistan Fili, hortumuyla nehir yerine yanlışlıkla köri sosu çekip havaya püskürttü. Yağan köri yağmuru yüzünden tüm Bollywood oyuncuları sarı renge boyandı. Yönetmen durumu o kadar beğendi ki, filmi 'Altın Köri Altında Aşk' adıyla müzikale çevirdi ve film gişe rekorları kırdı!",
+    history: "Hindistan, antik Harappa ve İndus vadisi medeniyetlerine ev sahipliği yapmıştır. Asırlar boyu Babür İmparatorluğu gibi zengin devletlerin yönetiminde kaldıktan sonra İngiliz sömürgesi olmuş, 1947'de Mahatma Gandhi'nin pasif direniş hareketleriyle bağımsızlığını kazanmıştır."
+  },
+  egypt: {
+    mascotName: "Mısır Firavunu",
+    story: "Mısır Firavunu, piramidin gizli odasında hiyeroglif yazarken yanlışlıkla 'kumdan tablet' yerine 'altın çikolata tableti' kullandı. Tableti güneşte unutan firavunun yazıları eridi ve Mısır'ın ilk 'akışkan çikolatalı suflesi' piramit şeklini aldı!",
+    history: "Antik Mısır, Nil Nehri'nin can verdiği topraklarda piramitleri inşa eden devasa bir medeniyetti. Büyük İskender, Romalılar ve son olarak Müslüman fatihler tarafından yönetilen ülke, yüzyıllar süren Osmanlı ve İngiliz etkisinden sonra modern cumhuriyetine kavuşmuştur."
+  },
+  norway: {
+    mascotName: "Norveç Vikinki",
+    story: "Norveç Vikinki, kuzey ışıklarının altında balta savurarak somon avlamaya çalışırken, baltasının sapı buz tuttu ve eline yapıştı. Sinirlenip somonu çiğ yemeye karar verdi ve 'Japonlara bunu sushi diye satalım' fikriyle somon suşisini icat etti!",
+    history: "Norveç, Viking çağının (8-11. yy) merkezlerinden biriydi. Yüzyıllarca Danimarka ve İsveç ile birlik halinde (Kalmar Birliği) yönetildikten sonra, 1905 yılında referandumla barışçıl bir şekilde tamamen bağımsız bir krallık haline gelmiştir."
+  },
+  italy: {
+    mascotName: "İtalyan Şef",
+    story: "İtalyan Şef spagetti pişirirken makarnaları o kadar havaya fırlattı ki, makarnalar Pisa Kulesi'ne dolandı ve kuleyi düzeltmek yerine daha da eğri görünmesine sebo oldu. Şef panik yapıp 'Bu yeni bir sos mimarisi!' diyerek turistlere eğri tabakta spagetti servis etmeye başladı!",
+    history: "İtalya, antik Roma İmparatorluğu'nun beşiğidir. Orta Çağ ve Rönesans döneminde Floransa, Venedik gibi bağımsız şehir devletlerine bölünen İtalya, 1861 yılında Garibaldi liderliğindeki birleşme hareketiyle (Risorgimento) tek bir krallık olmuştur."
+  },
+  spain: {
+    mascotName: "İspanyol Dansçı",
+    story: "İspanyol Dansçı flamenko yaparken kastanyetleri o kadar hızlı çaldı ki, çıkan sesle zeytin ağaçlarındaki tüm zeytinler kendiliğinden ezilerek sızma zeytinyağına dönüştü. Dansçı 'Yağmur gibi zeytinyağı yağıyor!' diyerek zeytinyağı havuzunda dansına devam etti!",
+    history: "İspanya, Endülüs Emevileri'nin hüküm sürdüğü ve ardından Katolik Kralların (Isabella ve Ferdinand) ülkeyi birleştirdiği Reconquista süreciyle şekillenmiştir. 15. yüzyılda coğrafi keşiflerle küresel bir imparatorluk haline gelmiştir."
+  },
+  mexico: {
+    mascotName: "Meksikalı Amigo",
+    story: "Meksikalı Amigo sombrero şapkasının içine sakladığı tacoları marakas çalarken düşürdü. Tacolar havadayken acı biber sosuyla buluşup o kadar lezzetli oldu ki, amigo sevinçten çölün ortasında kaktüslerle kucaklaşıp 'Ayyyy caramba!' diye bağırdı.",
+    history: "Meksika, Maya ve Aztek gibi gelişmiş antik imparatorlukların vatanıdır. 1521'de Hernan Cortes önderliğinde İspanyollar tarafından fethedilmiş, 300 yıllık sömürge döneminin ardından 1821'de bağımsızlığını ilan etmiştir."
+  },
+  brazil: {
+    mascotName: "Brezilyalı Sambacı",
+    story: "Brezilyalı Sambacı Amazon ormanlarında papağanlarla futbol maçı yaparken topu yanlışlıkla dev bir kahve çuvalına attı. Çuval patlayınca tüm orman kahve koktuktan sonra, jaguar kahve kokusundan o kadar enerjik oldu ki sambacıyla birlikte samba yapmaya başladı!",
+    history: "Brezilya, 1500 yılında Portekizli kaşif Pedro Alvares Cabral tarafından keşfedilmiştir. Uzun yıllar Portekiz sömürgesi olarak kaldıktan sonra, 1822'de Portekiz Kralı'nın oğlu Don Pedro liderliğinde kansız bir şekilde bağımsızlığını kazanmıştır."
+  },
+  germany: {
+    mascotName: "Alman Hans",
+    story: "Alman Hans otoyolda hız sınırı olmayan yerde bisikletiyle giderken yanındaki pretzeli elinden düşürdü. Pretzel uçarak bir bira bardağının içine düştü ve pretzel aromalı bira kazara icat edildi. Hans bisikletini durdurup 'İşte bu tam bir Alman mühendisliği!' dedi.",
+    history: "Almanya, Kutsal Roma Cermen İmparatorluğu ve ardından Prusya liderliğindeki prensliklerin birleşmesiyle 1871'de Otto von Bismarck önderliğinde Alman İmparatorluğu olarak kurulmuştur. İki dünya savaşından sonra bölünmüş, 1990'da Berlin Duvarı'nın yıkılmasıyla birleşmiştir."
+  }
+};
+
 export default function HomeScreen({ user, onLogout }) {
+  const [currentTab, setCurrentTab] = useState('explore'); // 'explore' | 'stories'
+  const [selectedStoryCountry, setSelectedStoryCountry] = useState(null);
+  const [showHistory, setShowHistory] = useState(false);
+
   const [selectedKey, setSelectedKey] = useState(null);
   const [mascotMood, setMascotMood] = useState('Mutlu! 😊');
   const [extraClass, setExtraClass] = useState('');
@@ -451,64 +518,138 @@ export default function HomeScreen({ user, onLogout }) {
           <h1 className="brand-title">Dünya Rehberi</h1>
         </div>
         <div className="header-user-info">
+          <button className={`nav-tab-btn ${currentTab === 'explore' ? 'active' : ''}`} onClick={() => setCurrentTab('explore')} style={{ marginRight: '8px' }}>🧭 Keşfet</button>
+          <button className={`nav-tab-btn ${currentTab === 'stories' ? 'active' : ''}`} onClick={() => { setCurrentTab('stories'); setSelectedStoryCountry(null); setShowHistory(false); }} style={{ marginRight: '16px' }}>🎭 Eğlenceli Hikayeler</button>
           <button className="visa-btn" onClick={() => { setIsVisaModalOpen(true); setVisaStep('select'); }}>🛂 Vize Al ve Gez</button>
           <span className="user-welcome">Hoş geldin, <strong>{user?.firstName || 'Kaşif'} {user?.lastName || ''}</strong>! 👋</span>
           <button className="logout-btn" onClick={onLogout}>Güvenli Çıkış</button>
         </div>
       </header>
 
-      {/* Hero Welcome banner */}
-      <section className="home-hero">
-        <h2>Dünyayı Keşfetmeye Hazır Mısın?</h2>
-        <p>Aşağıdaki renkli kartlardan bir ülkeyi seç, eğlenceli maskotlarımızın gizemlerini ve ülkelerin bilgilerini keşfet!</p>
-      </section>
+      {currentTab === 'explore' ? (
+        <>
+          {/* Hero Welcome banner */}
+          <section className="home-hero">
+            <h2>Dünyayı Keşfetmeye Hazır Mısın?</h2>
+            <p>Aşağıdaki renkli kartlardan bir ülkeyi seç, eğlenceli maskotlarımızın gizemlerini ve ülkelerin bilgilerini keşfet!</p>
+          </section>
 
-      {/* Main Grid */}
-      <main className="home-main">
-        <div className="country-grid">
-          {Object.entries(COUNTRY_PROFILES).map(([key, data]) => (
-            <div
-              key={key}
-              className="country-card"
-              style={{ '--accent-color': data.color }}
-              onClick={() => openCountry(key)}
-            >
-              <div className="country-card-header">
-                <span className="country-card-flag">{data.flag}</span>
-                <h3 className="country-card-name">{data.name}</h3>
-              </div>
-              <div className="country-card-preview" style={{ width: '110px', height: '110px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                <div style={{
-                  position: 'absolute',
-                  width: '90px',
-                  height: '90px',
-                  borderRadius: '50%',
-                  background: `radial-gradient(circle, ${data.color}22 0%, ${data.color}80 100%)`,
-                  zIndex: 1
-                }} />
-                <img 
-                  src={MASCOT_IMAGES[key]} 
-                  alt={data.name} 
-                  style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 2, position: 'relative', filter: !approvedVisas.includes(key) ? 'grayscale(80%)' : 'none' }} 
-                />
-                {!approvedVisas.includes(key) && (
-                  <div style={{ position: 'absolute', zIndex: 3, fontSize: '40px', background: 'rgba(255,255,255,0.7)', borderRadius: '50%', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    🔒
+          {/* Main Grid */}
+          <main className="home-main">
+            <div className="country-grid">
+              {Object.entries(COUNTRY_PROFILES).map(([key, data]) => (
+                <div
+                  key={key}
+                  className="country-card"
+                  style={{ '--accent-color': data.color }}
+                  onClick={() => openCountry(key)}
+                >
+                  <div className="country-card-header">
+                    <span className="country-card-flag">{data.flag}</span>
+                    <h3 className="country-card-name">{data.name}</h3>
                   </div>
-                )}
-              </div>
-              <div className="country-card-footer">
-                {approvedVisas.includes(key) ? (
-                  <span style={{ color: '#16a34a', fontWeight: 'bold' }}>✅ Vize Onaylandı</span>
-                ) : (
-                  <span style={{ color: '#ef4444', fontWeight: 'bold' }}>🚫 Vize Yok</span>
-                )}
-                <span className="explore-tag">Detayları Gör →</span>
+                  <div className="country-card-preview" style={{ width: '110px', height: '110px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                    <div style={{
+                      position: 'absolute',
+                      width: '90px',
+                      height: '90px',
+                      borderRadius: '50%',
+                      background: `radial-gradient(circle, ${data.color}22 0%, ${data.color}80 100%)`,
+                      zIndex: 1
+                    }} />
+                    <img 
+                      src={MASCOT_IMAGES[key]} 
+                      alt={data.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 2, position: 'relative', filter: !approvedVisas.includes(key) ? 'grayscale(80%)' : 'none' }} 
+                    />
+                    {!approvedVisas.includes(key) && (
+                      <div style={{ position: 'absolute', zIndex: 3, fontSize: '40px', background: 'rgba(255,255,255,0.7)', borderRadius: '50%', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        🔒
+                      </div>
+                    )}
+                  </div>
+                  <div className="country-card-footer">
+                    {approvedVisas.includes(key) ? (
+                      <span style={{ color: '#16a34a', fontWeight: 'bold' }}>✅ Vize Onaylandı</span>
+                    ) : (
+                      <span style={{ color: '#ef4444', fontWeight: 'bold' }}>🚫 Vize Yok</span>
+                    )}
+                    <span className="explore-tag">Detayları Gör →</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </main>
+        </>
+      ) : (
+        <div className="stories-container">
+          {!selectedStoryCountry ? (
+            <div className="message-box-backdrop">
+              <div className="message-box-content">
+                <h2>🎭 Maskotlar ve Eğlenceli Hikayeler</h2>
+                <p>Aşağıdaki sevimli ülke maskotlarından birine tıklayarak onun zenginlikleriyle dolu yaratıcı, komik hikayesini keşfedin!</p>
+                <div className="mascot-selection-grid">
+                  {Object.entries(COUNTRY_PROFILES).map(([key, data]) => (
+                    <button key={key} className="mascot-selection-card" onClick={() => { setSelectedStoryCountry(key); setShowHistory(false); }}>
+                      <div className="mascot-selection-avatar">
+                        <img src={MASCOT_IMAGES[key]} alt={data.name} />
+                      </div>
+                      <span className="mascot-selection-name">{data.mascotName}</span>
+                      <span className="mascot-selection-flag">{data.flag} {data.name}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+          ) : (
+            <div className="story-viewer-layout">
+              <div className="story-viewer-header">
+                <button className="back-to-mascots-btn" onClick={() => setSelectedStoryCountry(null)}>⬅️ Diğer Maskotlar</button>
+                <h2>{COUNTRY_PROFILES[selectedStoryCountry].flag} {COUNTRY_PROFILES[selectedStoryCountry].name} - {COUNTRY_PROFILES[selectedStoryCountry].mascotName}</h2>
+              </div>
+
+              <div className="story-viewer-body">
+                {/* Left Side: Mascot */}
+                <div className="story-viewer-left">
+                  <div className="story-mascot-wrapper">
+                    <img src={MASCOT_IMAGES[selectedStoryCountry]} alt={COUNTRY_PROFILES[selectedStoryCountry].name} className="animate-float" />
+                    <div className="story-mascot-shadow"></div>
+                  </div>
+                </div>
+
+                {/* Right Side: Envelope Note */}
+                <div className="story-viewer-right">
+                  <div className="envelope-note">
+                    <div className="envelope-note-paper">
+                      <div className="letter-header">
+                        <span className="letter-stamp">💌</span>
+                        <h3>Sevgili Gezgin,</h3>
+                      </div>
+                      <p className="letter-story-text">
+                        {FUN_STORIES[selectedStoryCountry].story}
+                      </p>
+                      <div className="letter-footer">
+                        <span>Sevgilerle, {FUN_STORIES[selectedStoryCountry].mascotName} 🐾</span>
+                      </div>
+                    </div>
+
+                    <button className="history-reveal-btn" onClick={() => setShowHistory(!showHistory)}>
+                      {showHistory ? "📖 Tarihi Gizle" : "❓ Nasıl Kazanıldı?"}
+                    </button>
+
+                    {showHistory && (
+                      <div className="history-card-box animate-float-delayed">
+                        <h4>📜 Nasıl Kazanıldı?</h4>
+                        <p>{FUN_STORIES[selectedStoryCountry].history}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      </main>
+      )}
 
       {/* Visa Alert Toast */}
       {showVisaAlert && (
@@ -1146,6 +1287,313 @@ export default function HomeScreen({ user, onLogout }) {
         .widget-action-btn:hover {
           filter: brightness(0.9);
           transform: translateY(-1px);
+        }
+
+        /* Navigation tab buttons in header */
+        .nav-tab-btn {
+          font-family: var(--primary-font);
+          font-size: 15px;
+          font-weight: 600;
+          color: #64748b;
+          background: #f1f5f9;
+          padding: 8px 16px;
+          border: none;
+          border-radius: var(--border-radius-md);
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .nav-tab-btn:hover {
+          background: #e2e8f0;
+          color: #1e293b;
+        }
+
+        .nav-tab-btn.active {
+          background: #22c55e;
+          color: #ffffff;
+        }
+
+        /* Stories container */
+        .stories-container {
+          flex: 1;
+          padding: 20px 40px 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        /* MessageBox design */
+        .message-box-backdrop {
+          width: 100%;
+          max-width: 1000px;
+          margin: 20px auto;
+        }
+
+        .message-box-content {
+          background: #ffffff;
+          border-radius: var(--border-radius-lg);
+          padding: 32px;
+          box-shadow: var(--card-shadow);
+          text-align: center;
+          border: 4px solid #bbf7d0;
+        }
+
+        .message-box-content h2 {
+          color: #166534;
+          margin-bottom: 8px;
+        }
+
+        .message-box-content p {
+          color: #475569;
+          margin-bottom: 24px;
+        }
+
+        .mascot-selection-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+          .mascot-selection-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .mascot-selection-card {
+          background: #f8fafc;
+          border: 2px solid #e2e8f0;
+          border-radius: var(--border-radius-md);
+          padding: 16px;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition: all 0.2s ease;
+          font-family: var(--primary-font);
+        }
+
+        .mascot-selection-card:hover {
+          border-color: #22c55e;
+          background: #f0fdf4;
+          transform: scale(1.05);
+        }
+
+        .mascot-selection-avatar {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mascot-selection-avatar img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .mascot-selection-name {
+          font-weight: bold;
+          color: #1e293b;
+          font-size: 14px;
+          text-align: center;
+        }
+
+        .mascot-selection-flag {
+          font-size: 12px;
+          color: #64748b;
+          margin-top: 4px;
+        }
+
+        /* Story viewer screen layout */
+        .story-viewer-layout {
+          width: 100%;
+          max-width: 1100px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .story-viewer-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 2px dashed #bbf7d0;
+          padding-bottom: 16px;
+        }
+
+        .back-to-mascots-btn {
+          font-family: var(--primary-font);
+          background: #ffffff;
+          border: 2px solid #cbd5e1;
+          color: #475569;
+          padding: 8px 16px;
+          border-radius: var(--border-radius-md);
+          cursor: pointer;
+          font-weight: 600;
+          transition: all 0.2s ease;
+        }
+
+        .back-to-mascots-btn:hover {
+          background: #f1f5f9;
+          color: #1e293b;
+          border-color: #94a3b8;
+        }
+
+        .story-viewer-header h2 {
+          margin: 0;
+          color: #1e293b;
+        }
+
+        .story-viewer-body {
+          display: flex;
+          gap: 40px;
+          align-items: flex-start;
+        }
+
+        @media (max-width: 768px) {
+          .story-viewer-body {
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+
+        .story-viewer-left {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        .story-mascot-wrapper {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .story-mascot-wrapper img {
+          width: 240px;
+          height: 240px;
+          object-fit: contain;
+          z-index: 2;
+        }
+
+        .story-mascot-shadow {
+          width: 160px;
+          height: 20px;
+          background: rgba(0,0,0,0.1);
+          border-radius: 50%;
+          margin-top: 10px;
+          filter: blur(4px);
+        }
+
+        .story-viewer-right {
+          flex: 1.5;
+          width: 100%;
+        }
+
+        /* Envelope Note Style */
+        .envelope-note {
+          background: #fefcf6;
+          border: 1px solid #e2d9c2;
+          border-radius: var(--border-radius-lg);
+          padding: 32px;
+          box-shadow: 0 10px 30px rgba(68, 61, 46, 0.08);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .envelope-note-paper {
+          background: #fffdf9;
+          border-radius: var(--border-radius-md);
+          padding: 24px;
+          border: 1px dashed #e4d8bb;
+          background-image: radial-gradient(#e5e0d2 1px, transparent 1px);
+          background-size: 16px 16px;
+        }
+
+        .letter-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid #f1eae0;
+          padding-bottom: 12px;
+          margin-bottom: 16px;
+        }
+
+        .letter-header h3 {
+          margin: 0;
+          font-family: var(--secondary-font);
+          color: #855d29;
+        }
+
+        .letter-stamp {
+          font-size: 28px;
+        }
+
+        .letter-story-text {
+          font-family: var(--secondary-font);
+          font-size: 17px;
+          line-height: 1.7;
+          color: #4a3e2e;
+          margin: 0 0 16px 0;
+        }
+
+        .letter-footer {
+          text-align: right;
+          font-family: var(--secondary-font);
+          font-style: italic;
+          color: #855d29;
+          font-weight: 600;
+        }
+
+        .history-reveal-btn {
+          font-family: var(--primary-font);
+          font-size: 15px;
+          font-weight: 600;
+          color: #ffffff;
+          background: #d97706;
+          border: none;
+          padding: 12px 24px;
+          border-radius: var(--border-radius-md);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          align-self: center;
+          box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+        }
+
+        .history-reveal-btn:hover {
+          background: #b45309;
+          transform: translateY(-1px);
+        }
+
+        .history-card-box {
+          background: #f8fafc;
+          border-left: 4px solid #3b82f6;
+          border-radius: var(--border-radius-md);
+          padding: 20px;
+          margin-top: 10px;
+        }
+
+        .history-card-box h4 {
+          margin: 0 0 8px 0;
+          color: #1e3a8a;
+          font-size: 16px;
+        }
+
+        .history-card-box p {
+          margin: 0;
+          font-size: 14px;
+          line-height: 1.6;
+          color: #334155;
         }
       `}</style>
     </div>
