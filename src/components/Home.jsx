@@ -920,7 +920,7 @@ const Home = ({ user, onLogout }) => {
         </div>
       )}
 
-      {selectedCountry && (
+      {selectedCountry && !showSpinWheel && !showMarket && !showPhoto && !showMiniGames && (
         <div className="modal-backdrop" onClick={closeCountry}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeCountry}>&times;</button>
