@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import AuthScreen from './components/AuthScreen';
-import HomeScreen from './components/HomeScreen';
+import HomeScreen from './components/Home';
 
 export default function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);

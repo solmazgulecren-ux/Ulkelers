@@ -1,4 +1,4 @@
-/* src/Home.css */
+/* src/components/Home.css */
 
 :root {
   --bg-primary: #FAF7F2;
@@ -43,7 +43,6 @@
   75% { transform: skewY(-5deg) scaleX(0.98); }
 }
 
-/* Bilgi kartındaki emojilerin uçuşma animasyonu */
 @keyframes floatShape {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-50px) rotate(180deg); opacity: 0.8; }
@@ -62,10 +61,130 @@
 }
 
 .container {
-  max-width: 1320px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.home-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s;
+}
+
+/* ===== HEADER ===== */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 16px 40px;
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  font-size: 28px;
+}
+
+.brand-title {
+  font-size: 24px;
+  margin: 0;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.user-welcome {
+  font-size: 15px;
+  color: #475569;
+}
+
+/* ===== BUTONLAR ===== */
+.logout-btn {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.visa-btn {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2563eb;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+.visa-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* ===== HERO ===== */
+.home-hero {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-hero h2 {
+  font-size: 32px;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+}
+
+.home-hero p {
+  font-size: 16px;
+  color: #475569;
+}
+
+/* ===== ANA GRID ===== */
+.home-main {
+  flex: 1;
+  padding: 0 40px 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 6 Üstte, 6 Altta Kart Hizalama Grid Sistemi */
@@ -73,7 +192,9 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 24px;
-  margin-top: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -89,9 +210,473 @@
   .country-grid { grid-template-columns: 1fr; }
 }
 
-.floating-emoji {
+/* ===== KARTLAR ===== */
+.country-card {
+  background: #ffffff;
+  border: 4px solid transparent;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 425px;
+}
+
+.country-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.country-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.country-card-flag {
+  font-size: 24px;
+}
+
+.country-card-name {
+  font-size: 18px;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.country-card-preview {
+  margin: 15px 0;
+}
+
+.country-card-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 13px;
+  color: #94a3b8;
+  border-top: 1px dashed #334155;
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+.explore-tag {
+  color: var(--accent-color, #ffd700);
+  font-weight: 600;
+}
+
+/* ===== MODAL ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #1e293b;
+  border-radius: 24px;
+  max-width: 1100px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close-btn {
   position: absolute;
-  bottom: -40px;
-  opacity: 0.15;
-  font-size: 1.5rem;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  color: #ffffff;
+}
+
+.modal-body-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.modal-details-pane {
+  text-align: left;
+}
+
+.modal-country-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-flag {
+  font-size: 38px;
+}
+
+.modal-country-header h2 {
+  font-size: 28px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.info-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 15px;
+  color: #e2e8f0;
+}
+
+.info-table td strong {
+  color: #94a3b8;
+}
+
+.fun-fact-section {
+  background: #0f172a;
+  border-left: 4px solid #22c55e;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.fun-fact-section h4 {
+  margin: 0 0 6px 0;
+  color: #4ade80;
+  font-size: 15px;
+}
+
+.fun-fact-section p {
+  font-size: 14px;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.modal-mascot-pane {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
+}
+
+.modal-mascot-pane h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.modal-mascot-visual {
+  cursor: crosshair;
+  transition: transform 0.2s ease;
+}
+
+.modal-mascot-visual.animate-celebrate {
+  animation: celebrate 0.6s ease;
+}
+
+@keyframes celebrate {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-5deg); }
+  50% { transform: scale(0.9) rotate(5deg); }
+  75% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.mascot-mood-badge {
+  background: #334155;
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.interactive-widget {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.widget-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.widget-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widget-action-btn {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.widget-action-btn:hover {
+  filter: brightness(0.85);
+  transform: translateY(-1px);
+}
+
+/* ===== VİZE TOAST ===== */
+.visa-alert-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+  z-index: 9999;
+  animation: slide-down 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slide-down {
+  0% { top: -50px; opacity: 0; }
+  100% { top: 20px; opacity: 1; }
+}
+
+/* ===== VİZE MODAL ===== */
+.visa-modal {
+  max-width: 600px;
+  text-align: center;
+}
+
+.visa-step-select h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.visa-step-select p {
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.visa-country-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.visa-country-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  justify-content: center;
+}
+
+.visa-country-btn:hover {
+  background: #1e293b;
+  border-color: #2563eb;
+}
+
+.visa-step-quiz h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.quiz-progress {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.quiz-question {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-option-btn {
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  padding: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-option-btn:hover {
+  background: #1e293b;
+  border-color: #2563eb;
+}
+
+.visa-step-result h2 {
+  color: #ffffff;
+}
+
+.score-display {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #e2e8f0;
+}
+
+.result-success,
+.result-fail {
+  padding: 20px 0;
+}
+
+.result-icon {
+  font-size: 64px;
+  display: block;
+  margin: 10px 0;
+}
+
+.result-success h3 {
+  color: #4ade80;
+  margin: 10px 0;
+}
+
+.result-fail h3 {
+  color: #f87171;
+  margin: 10px 0;
+}
+
+.result-success p,
+.result-fail p {
+  color: #94a3b8;
+}
+
+.visa-action-btn {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  background: #475569;
+  margin-top: 20px;
+  transition: all 0.2s ease;
+}
+
+.visa-action-btn:hover {
+  transform: translateY(-1px);
+}
+
+.visa-action-btn.success {
+  background: #16a34a;
+}
+
+.visa-action-btn.success:hover {
+  background: #15803d;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .home-header {
+    padding: 16px 20px;
+  }
+  .home-main {
+    padding: 0 20px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .header-user-info {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .modal-body-split {
+    grid-template-columns: 1fr;
+  }
+  .modal-content {
+    padding: 20px;
+    max-height: 95vh;
+  }
+  .visa-country-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero h2 {
+    font-size: 24px;
+  }
+  .brand-title {
+    font-size: 18px;
+  }
+  .home-header {
+    padding: 12px 16px;
+  }
+  .header-user-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .visa-country-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-content {
+    padding: 16px;
+  }
+  .modal-country-header h2 {
+    font-size: 22px;
+  }
 }
