@@ -82,5 +82,47 @@ export const visaQuestions = {
     { question: "Almanya'da 300'den fazla çeşidi bulunan gıda ürünü hangisidir?", options: ["Peynir", "Ekmek", "Zeytin"], answer: 1 },
     { question: "Almanya'nın Berlin'deki meşhur tarihi sembolik kapısı hangisidir?", options: ["Zafer Takı", "Brandenburg Kapısı", "Aslanlı Kapı"], answer: 1 },
     { question: "Almanya'nın dünyaca ünlü geleneksel düğüm şeklindeki kraker/ekmeği nedir?", options: ["Kruvasan", "Baget", "Pretzel (Brezel)"], answer: 2 }
+  ],
+  japan: [
+    { question: "Japonya'nın başkenti neresidir?", options: ["Kyoto", "Tokyo", "Osaka"], answer: 1 },
+    { question: "Hangi dağ Japonya'nın simgesidir?", options: ["Fuji", "Everest", "Alpler"], answer: 0 },
+    { question: "Çiğ balık ve pirinçten yapılan meşhur Japon yemeği nedir?", options: ["Ramen", "Tempura", "Sushi"], answer: 2 },
+    { question: "Geleneksel Japon kıyafetinin adı nedir?", options: ["Sari", "Kimono", "Panço"], answer: 1 },
+    { question: "Japonya'nın para birimi nedir?", options: ["Won", "Yuan", "Yen"], answer: 2 }
+  ],
+  france: [
+    { question: "Fransa'nın başkenti neresidir?", options: ["Lyon", "Marsilya", "Paris"], answer: 2 },
+    { question: "Paris'in en ünlü demir kulesinin adı nedir?", options: ["Pisa", "Eyfel", "Big Ben"], answer: 1 },
+    { question: "Fransızların meşhur kahvaltılık hamur işi nedir?", options: ["Simit", "Kruvasan", "Donut"], answer: 1 },
+    { question: "Dünyanın en büyük sanat müzesi Fransa'dadır. Adı nedir?", options: ["Prado", "Louvre", "Uffizi"], answer: 1 },
+    { question: "Fransa'da hangi spor turnuvası (bisiklet) çok ünlüdür?", options: ["Tour de France", "La Vuelta", "F1"], answer: 0 }
+  ],
+  uk: [
+    { question: "İngiltere'nin başkenti neresidir?", options: ["Londra", "Manchester", "Liverpool"], answer: 0 },
+    { question: "Londra'daki ünlü saat kulesinin adı nedir?", options: ["London Eye", "Big Ben", "Tower Bridge"], answer: 1 },
+    { question: "İngilizlerin en meşhur sokak yemeği nedir?", options: ["Pizza", "Taco", "Fish and Chips"], answer: 2 },
+    { question: "İngiltere'nin gizemli antik taş anıtının adı nedir?", options: ["Stonehenge", "Partenon", "Piramitler"], answer: 0 },
+    { question: "İngiltere'de kraliyetin yaşadığı sarayın adı nedir?", options: ["Versay", "El Hamra", "Buckingham"], answer: 2 }
+  ],
+  usa: [
+    { question: "Amerika Birleşik Devletleri'nin başkenti neresidir?", options: ["New York", "Los Angeles", "Washington DC"], answer: 2 },
+    { question: "New York limanında meşaleli dev heykelin adı nedir?", options: ["Özgürlük Heykeli", "İsa Heykeli", "Sfenks"], answer: 0 },
+    { question: "Amerikan sinema endüstrisinin merkezi neresidir?", options: ["Bollywood", "Hollywood", "Broadway"], answer: 1 },
+    { question: "Amerika'da hangi spor en popülerdir?", options: ["Futbol", "Kriket", "Amerikan Futbolu"], answer: 2 },
+    { question: "Dünyanın en büyük teknoloji merkezi neresidir?", options: ["Ölüm Vadisi", "Silikon Vadisi", "Büyük Kanyon"], answer: 1 }
+  ],
+  greece: [
+    { question: "Yunanistan'ın başkenti neresidir?", options: ["Selanik", "Atina", "Sparta"], answer: 1 },
+    { question: "Atina'daki antik tapınağın adı nedir?", options: ["Pantheon", "Partenon", "Kolezyum"], answer: 1 },
+    { question: "Yunanistan'ın beyaz evleri ve mavi kubbeleriyle ünlü adası hangisidir?", options: ["Santorini", "Mikonos", "Midilli"], answer: 0 },
+    { question: "Yunan mitolojisinde Tanrıların kralı kimdir?", options: ["Ares", "Poseidon", "Zeus"], answer: 2 },
+    { question: "Hangi uluslararası spor etkinliği ilk kez Yunanistan'da yapılmıştır?", options: ["Dünya Kupası", "Olimpiyatlar", "Wimbledon"], answer: 1 }
+  ],
+  bosnia: [
+    { question: "Bosna Hersek'in başkenti neresidir?", options: ["Saraybosna", "Mostar", "Tuzla"], answer: 0 },
+    { question: "Neretva nehri üzerindeki tarihi Osmanlı köprüsünün adı nedir?", options: ["Galata Köprüsü", "Mostar Köprüsü", "Drina Köprüsü"], answer: 1 },
+    { question: "Bosna'nın en meşhur böreğine ne ad verilir?", options: ["Su böreği", "Burek", "Kol böreği"], answer: 1 },
+    { question: "Balkanların meşhur pidelik köftesinin adı nedir?", options: ["İnegöl", "Cevapi", "Akçaabat"], answer: 1 },
+    { question: "Saraybosna'nın kalbi olan tarihi çarşının adı nedir?", options: ["Kapalıçarşı", "Mısır Çarşısı", "Başçarşı"], answer: 2 }
   ]
 };

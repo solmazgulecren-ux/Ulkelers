@@ -1,6 +1,12 @@
 import React from 'react';
 
 export default function MenuBar({ currentTab, setCurrentTab, user, onLogout, onOpenVisaModal }) {
+  const handleLogoutClick = () => {
+    if (window.confirm('Çıkış yapmak istediğinize emin misiniz?')) {
+      onLogout();
+    }
+  };
+
   return (
     <>
       <header className="home-header">
@@ -29,7 +35,7 @@ export default function MenuBar({ currentTab, setCurrentTab, user, onLogout, onO
           <span className="user-welcome">
             Hoş geldin, <strong>{user?.firstName || 'Kaşif'} {user?.lastName || ''}</strong>! 👋
           </span>
-          <button className="logout-btn" onClick={onLogout}>
+          <button className="logout-btn" onClick={handleLogoutClick}>
             Güvenli Çıkış
           </button>
         </div>

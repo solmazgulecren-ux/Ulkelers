@@ -6,14 +6,24 @@ import HomeScreen from './components/Home';
 export default function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
+  // İlk sekme açılışı (yeni oturum) ile sayfa yenilemeyi ayırt etme
   useEffect(() => {
-    const session = localStorage.getItem('currentUser');
-    if (session) {
-      try {
-        const user = JSON.parse(session);
-        setLoggedInUser(user);
-      } catch (err) {
-        localStorage.removeItem('currentUser');
+    const isRefresh = sessionStorage.getItem('session_active');
+    
+    if (!isRefresh) {
+      // Yeni sekme veya ilk açılış: Kullanıcıyı her zaman giriş ekranına at
+      localStorage.removeItem('currentUser');
+      sessionStorage.setItem('session_active', 'true');
+    } else {
+      // Sadece sayfa yenilendi: Eğer kullanıcı giriş yapmışsa geri yükle
+      const session = localStorage.getItem('currentUser');
+      if (session) {
+        try {
+          const user = JSON.parse(session);
+          setLoggedInUser(user);
+        } catch (err) {
+          localStorage.removeItem('currentUser');
+        }
       }
     }
   }, []);

@@ -12,6 +12,12 @@ import spainImg from '../assets/mascots/spain_chibi.png';
 import mexicoImg from '../assets/mascots/mexico_chibi.png';
 import brazilImg from '../assets/mascots/brazil_chibi.png';
 import germanyImg from '../assets/mascots/germany_chibi.png';
+import japanImg from '../assets/mascots/japan_chibi.png';
+import franceImg from '../assets/mascots/france_chibi.png';
+import ukImg from '../assets/mascots/uk_chibi.png';
+import usaImg from '../assets/mascots/usa_chibi.png';
+import greeceImg from '../assets/mascots/greece_chibi.png';
+import bosniaImg from '../assets/mascots/bosnia_chibi.png';
 
 const MASCOT_IMAGES = {
   russia: russiaImg,
@@ -25,7 +31,13 @@ const MASCOT_IMAGES = {
   spain: spainImg,
   mexico: mexicoImg,
   brazil: brazilImg,
-  germany: germanyImg
+  germany: germanyImg,
+  japan: japanImg,
+  france: franceImg,
+  uk: ukImg,
+  usa: usaImg,
+  greece: greeceImg,
+  bosnia: bosniaImg
 };
 
 
@@ -42,8 +54,16 @@ const MASCOT_DETAILS = {
   spain: { name: "İspanyol Dansçı", greeting: "¡Hola! Flamenko ritmiyle hayatı dansa dönüştürün! 🇪🇸💃", color: "#f1bf00", flag: "🇪🇸" },
   mexico: { name: "Meksikalı Amigo", greeting: "¡Ay Caramba! Taco yiyelim, marakas çalalım! 🇲🇽🌮", color: "#006847", flag: "🇲🇽" },
   brazil: { name: "Brezilyalı Sambacı", greeting: "Olá! Futbol, dans ve karnaval ruhu damarlarımızda! 🇧🇷⚽", color: "#009b3a", flag: "🇧🇷" },
-  germany: { name: "Alman Hans", greeting: "Hallo! Çıtır pretzel ve buz gibi içecekle keyif yapalım! 🇩🇪🥨", color: "#ffcc00", flag: "🇩🇪" }
+  germany: { name: "Alman Hans", greeting: "Hallo! Çıtır pretzel ve buz gibi içecekle keyif yapalım! 🇩🇪🥨", color: "#ffcc00", flag: "🇩🇪" },
+  japan: { name: "Samuray Kedisi", greeting: "Konnichiwa! Sushi yiyip origami yapalım! 🇯🇵🍣", color: "#EF4444", flag: "🇯🇵" },
+  france: { name: "Ressam Kurbağa", greeting: "Bonjour! Kruvasanım çok taze, resmimi çizer misin? 🇫🇷🎨", color: "#2563EB", flag: "🇫🇷" },
+  uk: { name: "Kraliyet Askeri", greeting: "Hello! Saat 5 çayı vakti geldi! 🇬🇧☕", color: "#1D4ED8", flag: "🇬🇧" },
+  usa: { name: "Kartal Sam", greeting: "Howdy! Hamburger yiyip basket atalım! 🇺🇸🍔", color: "#B91C1C", flag: "🇺🇸" },
+  greece: { name: "Zeus Heykeli", greeting: "Yassou! Zeytin yiyip sirtaki yapalım! 🇬🇷🫒", color: "#0284C7", flag: "🇬🇷" },
+  bosnia: { name: "Boşnak Gezgini", greeting: "Dobar dan! Cevapi yiyip köprüden atlayalım! 🇧🇦🧆", color: "#2563EB", flag: "🇧🇦" }
 };
+
+const NEW_MASCOTS = ['japan', 'france', 'uk', 'usa', 'greece', 'bosnia'];
 
 export default function MascotGrid({
   isTyping,
@@ -171,7 +191,8 @@ export default function MascotGrid({
                       height: '100%',
                       objectFit: 'contain',
                       zIndex: 2,
-                      position: 'relative'
+                      position: 'relative',
+                      mixBlendMode: NEW_MASCOTS.includes(key) ? 'multiply' : 'normal'
                     }} 
                   />
                   {/* Sibling fight dust overlay */}
@@ -209,21 +230,21 @@ export default function MascotGrid({
 
         .mascot-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(6, 1fr);
           gap: 16px;
           width: 100%;
-          max-width: 820px;
+          max-width: 1100px;
         }
 
         @media (max-width: 1024px) {
           .mascot-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
           }
         }
         @media (max-width: 580px) {
           .mascot-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
           }
         }

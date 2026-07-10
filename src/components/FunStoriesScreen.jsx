@@ -12,6 +12,12 @@ import spainImg from '../assets/mascots/spain_chibi.png';
 import mexicoImg from '../assets/mascots/mexico_chibi.png';
 import brazilImg from '../assets/mascots/brazil_chibi.png';
 import germanyImg from '../assets/mascots/germany_chibi.png';
+import japanImg from '../assets/mascots/japan_chibi.png';
+import franceImg from '../assets/mascots/france_chibi.png';
+import ukImg from '../assets/mascots/uk_chibi.png';
+import usaImg from '../assets/mascots/usa_chibi.png';
+import greeceImg from '../assets/mascots/greece_chibi.png';
+import bosniaImg from '../assets/mascots/bosnia_chibi.png';
 
 const MASCOT_IMAGES = {
   russia: russiaImg,
@@ -25,7 +31,13 @@ const MASCOT_IMAGES = {
   spain: spainImg,
   mexico: mexicoImg,
   brazil: brazilImg,
-  germany: germanyImg
+  germany: germanyImg,
+  japan: japanImg,
+  france: franceImg,
+  uk: ukImg,
+  usa: usaImg,
+  greece: greeceImg,
+  bosnia: bosniaImg
 };
 
 const COUNTRY_PROFILES_MIN = {
@@ -40,7 +52,13 @@ const COUNTRY_PROFILES_MIN = {
   spain: { name: "İspanya", flag: "🇪🇸", mascotName: "İspanyol Dansçı" },
   mexico: { name: "Meksika", flag: "🇲🇽", mascotName: "Meksikalı Amigo" },
   brazil: { name: "Brezilya", flag: "🇧🇷", mascotName: "Brezilyalı Sambacı" },
-  germany: { name: "Almanya", flag: "🇩🇪", mascotName: "Alman Hans" }
+  germany: { name: "Almanya", flag: "🇩🇪", mascotName: "Alman Hans" },
+  japan: { name: "Japonya", flag: "🇯🇵", mascotName: "Samuray Kedisi" },
+  france: { name: "Fransa", flag: "🇫🇷", mascotName: "Ressam Kurbağa" },
+  uk: { name: "İngiltere", flag: "🇬🇧", mascotName: "Kraliyet Askeri" },
+  usa: { name: "Amerika", flag: "🇺🇸", mascotName: "Kartal Sam" },
+  greece: { name: "Yunanistan", flag: "🇬🇷", mascotName: "Zeus Heykeli" },
+  bosnia: { name: "Bosna Hersek", flag: "🇧🇦", mascotName: "Boşnak Gezgini" }
 };
 
 const FUN_STORIES = {
@@ -103,6 +121,37 @@ const FUN_STORIES = {
     mascotName: "Alman Hans",
     story: "Alman Hans otoyolda hız sınırı olmayan yerde bisikletiyle giderken yanındaki pretzeli elinden düşürdü. Pretzel uçarak bir bira bardağının içine düştü ve pretzel aromalı bira kazara icat edildi. Hans bisikletini durdurup 'İşte bu tam bir Alman mühendisliği!' dedi.",
     history: "Almanya, Kutsal Roma Cermen İmparatorluğu ve ardından Prusya liderliğindeki prensliklerin birleşmesiyle 1871'de Otto von Bismarck önderliğinde Alman İmparatorluğu olarak kurulmuştur. İki dünya savaşından sonra bölünmüş, 1990'da Berlin Duvarı'nın yıkılmasıyla birleşmiştir."
+  }
+  ,
+  japan: {
+    mascotName: "Samuray Kedisi",
+    story: "Samuray Kedisi kılıcıyla havada uçuşan yaprakları keserek antrenman yaparken, hızını alamayıp mutfaktaki sushi pirinçlerini ve yosunları havada doğradı. Parçalar yere inmeden havada kusursuz bir origami kulesine dönüştü. İmparator bunu görünce onu 'Kraliyet Sushi Sanatçısı' ilan etti!",
+    history: "Japonya, binlerce yıllık imparatorluk geçmişine sahip izole bir ada ülkesiydi. 19. yüzyıldaki Meiji Restorasyonu ile dış dünyaya açılmış, teknoloji ve sanayide devasa atılımlar yaparak bugün dünyanın en büyük ekonomilerinden biri haline gelmiştir."
+  },
+  france: {
+    mascotName: "Ressam Kurbağa",
+    story: "Ressam Kurbağa sabah kahvaltısında kruvasanını yanlışlıkla paletindeki mavi boyaya batırdı ve yemeye çalışırken dudakları masmavi oldu! Panikleyip Eyfel Kulesi'ne tırmanmaya başladı. Parisliler bunun yeni bir moda olduğunu sanıp herkes mavi rujla gezmeye başladı.",
+    history: "Fransa, antik Roma'nın Galya eyaleti olarak başladığı tarihini Orta Çağ'da güçlü bir krallık olarak sürdürmüştür. 1789 Fransız İhtilali ile tüm dünyaya eşitlik ve özgürlük fikirlerini yaymış, modern demokrasinin beşiği olmuştur."
+  },
+  uk: {
+    mascotName: "Kraliyet Askeri",
+    story: "Kraliyet Askeri nöbet tutarken yağan yağmurda çayını korumak için şemsiyesini ters çevirdi. Şemsiyenin içi dev bir çay fincanına dönüştü! Yoldan geçen kraliçe bu dev çaydanlık şemsiyesini o kadar beğendi ki, saraydaki herkese şemsiyeden çay içmeyi emretti.",
+    history: "Birleşik Krallık (İngiltere), Magna Carta (1215) ile demokrasi adımlarını atan, Sanayi Devrimi'ni başlatan ülkedir. 'Üzerinde güneş batmayan imparatorluk' olarak bilinen tarihiyle modern dünyanın şekillenmesinde büyük rol oynamıştır."
+  },
+  usa: {
+    mascotName: "Kartal Sam",
+    story: "Kartal Sam gökyüzünde süzülürken aşağıda beyzbol oynayan çocukları gördü ve maça katılmak istedi. Top yerine yanlışlıkla dev bir hamburgeri pençeledi ve potaya doğru fırlattı! Hamburger tam isabetle çemberden geçti ve 'Fast-Food Basketbolu' sporu böylece doğmuş oldu.",
+    history: "Amerika Birleşik Devletleri, 1776 yılında İngiltere'den bağımsızlığını ilan eden 13 koloninin birleşmesiyle kuruldu. Kısa sürede batıya doğru genişleyerek ve teknolojik ilerlemeler kaydederek bugünkü küresel süper güç konumuna geldi."
+  },
+  greece: {
+    mascotName: "Zeus Heykeli",
+    story: "Zeus Heykeli canlanıp olimpiyat meşalesiyle sirtaki yapmaya karar verdi. Dans ederken meşale zeytin ağacının dallarını tutuşturdu ve zeytinler sıcaktan kavrulup doğrudan zeytinyağı yağmuru olarak aşağı aktı! Yunan salatasının sırrı da böylece çözülmüş oldu.",
+    history: "Yunanistan, demokrasinin, felsefenin (Sokrates, Platon) ve Olimpiyat Oyunlarının doğduğu antik medeniyettir. Yüzyıllarca Roma ve Osmanlı egemenliğinde kaldıktan sonra 1821'de bağımsızlık ateşini yakarak bugünkü modern devletini kurmuştur."
+  },
+  bosnia: {
+    mascotName: "Boşnak Gezgini",
+    story: "Boşnak Gezgini elinde dumanı tüten bir Boşnak böreğiyle Mostar Köprüsü'nde yürürken böreği nehre düşürdü! Böreği kurtarmak için efsanevi bir atlayış yaptı ve suya dalıp böreği tek lokmada yedi. O günden sonra Mostar'dan atlama yarışmaları börek kapmaca yarışına döndü!",
+    history: "Bosna Hersek, Balkanların kalbinde Doğu ile Batı'nın buluşma noktasıdır. Yüzyıllarca Osmanlı yönetiminde kalarak eşsiz bir hoşgörü kültürü geliştirmiş, yakın tarihindeki zorluklara rağmen barışın ve küllerinden doğuşun simgesi olmuştur."
   }
 };
 

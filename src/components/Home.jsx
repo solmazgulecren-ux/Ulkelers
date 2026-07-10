@@ -6,6 +6,7 @@ import FunStoriesScreen from './FunStoriesScreen';
 import SpinWheelModal from './SpinWheelModal';
 import MarketModal from './MarketModal';
 import PhotoModal from './PhotoModal';
+import MiniGamesModal from './MiniGamesModal';
 import CollectionScreen from './CollectionScreen';
 import './Home.css';
 
@@ -355,8 +356,181 @@ const COUNTRY_PROFILES = {
     },
     festivals: {
       title: '🎉 Festivaller',
-      desc: 'Geleneksel Çin Yeni Yılı (Bahar Festivali) ejderha dansları, kırmızı fenerler ve havai fişeklerle kutlanır. Fener Festivali\'nde ise sokaklar binlerce renkli kağıt fenerle aydınlanır.',
       image: 'https://images.unsplash.com/photo-1508849789987-4e5333c12b78?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  japan: {
+    id: 'japan',
+    name: "Japonya",
+    capital: "Tokyo",
+    language: "Japonca",
+    population: "125 Milyon",
+    landmark: "Fuji Dağı, Fushimi Inari Tapınağı",
+    funFact: "Japonya'da 6.800'den fazla ada vardır! Japon mutfağında 'umami' (lezzetlilik) beşinci bir temel tat olarak kabul edilir.",
+    flag: "🇯🇵",
+    color: "#DC2626",
+    mascotName: "Japon Ninja",
+    interactiveActions: ["Origami Yap 📘", "Çay Seremonisi ☕", "Ninja Hamlesi 💈"],
+    image: new URL('../assets/mascots/japan_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🍲 Yöresel Yemekler',
+      desc: 'Taze balık ve pirinçle özenle hazırlanan Sushi ve Sashimi Japon mutfağının zirvesidir. Sıcak Ramen çorbası yumuşak yumurta ve karidesle servis edilir.',
+      image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: 'Japonya\'nın sembolü Fuji Dağı ve binlerce turuncu kapı ile ünlü Fushimi Inari Tapınağı eşsiz güzellikler sunar. Tokyo\'nun nızıltılı Shibuya kavşağı ise modernliğin simgesidir.',
+      image: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🌸 Festivaller',
+      desc: 'Hanami (Kiraz Çiçeği Festivali) her yazın başında Japonların park ve sokaklarda pembe sakura ağaçlarının altında piknik yapmasıyla kutlanır. Tanabata yıldız festivali de efsanevidir.',
+      image: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  france: {
+    id: 'france',
+    name: "Fransa",
+    capital: "Paris",
+    language: "Fransızca",
+    population: "68 Milyon",
+    landmark: "Eyfel Kulesi, Louvre Müzesi",
+    funFact: "Fransa, yılda 90 milyondan fazla turistiyle dünyanın en çok ziyaret edilen ülkesidir! 400'den fazla peynir çeşidi üretilir.",
+    flag: "🇫🇷",
+    color: "#2563EB",
+    mascotName: "Fransız Aşçı",
+    interactiveActions: ["Baget Getir 🥖", "Şarap Aç 🍷", "Bere Tak 🧢"],
+    image: new URL('../assets/mascots/france_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🥐 Yöresel Yemekler',
+      desc: 'Kruvasan ve baget Fransız fırıncılığının sembolüdür. Kabuklu midye Moules-Frites ve soyuğa dayanmasıyla ünlü Coq au Vin ise Fransız mutfağının klasığidir.',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: '1889\'da inşa edilen demir Eyfel Kulesi Paris\'in ve tüm Fransa\'nın simgesidir. Louvre Müzesi\'ndeki Mona Lisa her yıl milyonlarca ziyaretçi çeker. Fransız Rivierasi ise eşsiz kıyı güzelliğini sunar.',
+      image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🎉 Festivaller',
+      desc: 'Her yıl 14 Temmuz\'da kutlanan Bastille Günü havai fişekler ve askeri geçit töreniyle Fransa genelinde coşkuyla kutlanır. Cannes Film Festivali ise dünyaca ünlüdür.',
+      image: 'https://images.unsplash.com/photo-1547581849-b98e8e2d8fdd?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  uk: {
+    id: 'uk',
+    name: "Birleşik Krallık",
+    capital: "Londra",
+    language: "İngilizce",
+    population: "67 Milyon",
+    landmark: "Big Ben, Buckingham Sarayı",
+    funFact: "İngiltere çay tüketiminde Avrupa birincisidir. Futbol (soccer) oyunu burada icat edilmiştir!",
+    flag: "🇬🇧",
+    color: "#1D4ED8",
+    mascotName: "Kraliyet Muhafızı",
+    interactiveActions: ["Çay Doldur ☕", "Nöbet Değiştir 💪", "Big Ben'i Çal 🔔"],
+    image: new URL('../assets/mascots/uk_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🍳 Yöresel Yemekler',
+      desc: 'Tam İngiliz kahvaltısı (Full English Breakfast) yumurta, sosis, pastırma ve fasulyeden oluşur. Balık ve patates kızartması (Fish & Chips) ise ülkenin en ikonik sokak lezzetidir.',
+      image: 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: 'Londra\'daki Big Ben saat kulesi, muhteşem Buckingham Sarayı ve gizemli Stonehenge antik taş çemberi en önemli simgelerdir. İskoçya\'nın yemyeşil highland dağları da büyüleyicidir.',
+      image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🎉 Festivaller',
+      desc: 'Edinburgh Fringe Festivali, dünyanın en büyük sanat festivalidir. Notting Hill Karnavalı ise Avrupa\'nın en büyük açık hava festivali olarak her yıl Londra sokaklarda renkli bir karnaval sunar.',
+      image: 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  usa: {
+    id: 'usa',
+    name: "Amerika Birleşik Devletleri",
+    capital: "Washington D.C.",
+    language: "İngilizce",
+    population: "330 Milyon",
+    landmark: "Özgürlük Heykeli, Grand Canyon",
+    funFact: "ABD, dünyada en fazla Oscar kazanan filmlerin ülkesidir. New York\'ta dünyanın en çok kullanılan metrolarından biri işletilmektedir!",
+    flag: "🇺🇸",
+    color: "#B45309",
+    mascotName: "Amerikan Kahramanı",
+    interactiveActions: ["Burger Ye 🍔", "Beyzbol At ⚾", "Kovboy Şapkası Tak 🤠"],
+    image: new URL('../assets/mascots/usa_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🍔 Yöresel Yemekler',
+      desc: 'Klasik Amerikan Hamburgeri dünyaya yayılmış bir lezzettir. BBQ (Barbekü) kültürü özellikle güneyden gelir ve özel soslarla yavaş yavaş pişirilen etlerle servis edilir.',
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: 'New York Limanı\'ndaki ihtişamlı Özgürlük Heykeli ve büyük Colorado Nehri\'nin milyonlarca yılda kazdığı Grand Canyon en önemli ABD simgeleridir.',
+      image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🎉 Festivaller',
+      desc: '4 Temmuz Bağımsızlık Günü ABD\'nin en büyük ulusal kutlamasıdır. Coachella müzik festivali, New Orleans\'daki Mardi Gras ve Met Gala da dünyaca ünlü Amerikan etkinlikleridir.',
+      image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  greece: {
+    id: 'greece',
+    name: "Yunanistan",
+    capital: "Atina",
+    language: "Yunanca",
+    population: "10.7 Milyon",
+    landmark: "Akropolis, Santorini",
+    funFact: "Batı medeniyetinin temeli sayılan demokrasi ve felsefe Yunanistan\'da doğdu. Antik Olimpiyat Oyunları da burada başladı!",
+    flag: "🇬🇷",
+    color: "#0284C7",
+    mascotName: "Yunan Filozofu",
+    interactiveActions: ["Zeytin Ye 🫒", "Bouzouki Çal 🎸", "Felsefe Yap 🫡"],
+    image: new URL('../assets/mascots/greece_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🧆 Yöresel Yemekler',
+      desc: 'Yufkadan yapılan kat kat börek Spanakopita (ıspanaklı börek), zeytinyağı, limon ve sarımsak soslu Souvlaki Yunan mutfağının vazgeçilmezleridir. Çok tathı Baklava ve tatlı dondurma Loukoumades çok sevilir.',
+      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: 'Atina tepesindeki ihtişamla yükselen Parthenon tapınağı ve mavi kubbeli beyaz evleriyle büyüleyici Santorini adası Yunanistan\'nın iki eşsiz simgesidir.',
+      image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🎉 Festivaller',
+      desc: 'Yunanistan\'da Apokries (Karnaval) büyük maskeleri ve renkli geçit törenleriyle kutlanır. Panagia Festivali ise Ortodoks Hıristiyan geleneğiyle ada köylerinde binlerce insanı bir araya getirir.',
+      image: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=400&auto=format&fit=crop&q=80'
+    }
+  },
+  bosnia: {
+    id: 'bosnia',
+    name: "Bosna Hersek",
+    capital: "Saraybosna",
+    language: "Boşnakça",
+    population: "3.3 Milyon",
+    landmark: "Eski Köprü (Stari Most), Saraybosna Çarşısı",
+    funFact: "Mostar şehrindeki tarihi Stari Most köprüsü 1993\'te yıkıldıktan sonra geleneksel yöntemlerle yeniden inşa edildi. Boşnak kahvesi kendi özel servis geleneğiyle sunulur!",
+    flag: "🇧🇦",
+    color: "#7C3AED",
+    mascotName: "Boşnak Kültür Elçisi",
+    interactiveActions: ["Kahve Hazırla ☕", "Çarşıya Çık 🛍️", "Köprüden Atla 🎉"],
+    image: new URL('../assets/mascots/bosnia_chibi.png', import.meta.url).href,
+    foods: {
+      title: '🥙 Yöresel Yemekler',
+      desc: 'Cevapçiça ince kıyma köftesiyle servis edilen Boşnak\'ın vazgeçilmezi olup yanında soğan ve taze ekmekle sunulur. Burek ise kıymalı veya peynirli kıvrım böreğidir.',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&auto=format&fit=crop&q=80'
+    },
+    landmarks: {
+      title: '🏗️ Tarihi Yerler ve Doğal Güzellikler',
+      desc: 'Yeşil Neretva Nehri üzerindeki tarihi Stari Most köprüsü ve Saraybosna\'nın Osmanlı döneminden kalma Baščaršija çarşısı en önemli kültürel zenginliklerdir.',
+      image: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=400&auto=format&fit=crop&q=80'
+    },
+    festivals: {
+      title: '🎉 Festivaller',
+      desc: 'Saraybosna Film Festivali, Balkanlardır en prestijli sinema etkinliklerinden biridir. Bascarsija Nights ise yazın eski çarşıda müzik, dans ve sanat performanslarıyla düzenlenen geleneksel bir şenliktir.',
+      image: 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=400&auto=format&fit=crop&q=80'
     }
   }
 };
@@ -379,12 +553,17 @@ const Home = ({ user, onLogout }) => {
   const [showSpinWheel, setShowSpinWheel] = useState(false);
   const [showMarket, setShowMarket] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
+  const [showMiniGames, setShowMiniGames] = useState(false);
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [userGold, setUserGold] = useState(0);
 
-  // ===== VİZE VERİLERİNİ LOCALSTORAGE'DAN YÜKLE =====
+  // ===== VİZE VE ALTIN VERİLERİNİ LOCALSTORAGE'DAN YÜKLE =====
   useEffect(() => {
     if (user && user.email) {
       const storedVisas = JSON.parse(localStorage.getItem(`visas_${user.email}`) || '[]');
       setApprovedVisas(storedVisas);
+      const storedGold = localStorage.getItem(`gold_${user.email}`);
+      if (storedGold) setUserGold(parseInt(storedGold, 10));
     }
   }, [user]);
 
@@ -432,7 +611,7 @@ const Home = ({ user, onLogout }) => {
     if (optionIndex === questions[currentQuestionIndex].answer) {
       setScore(prev => prev + 1);
     }
-    
+
     if (currentQuestionIndex < 4) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
@@ -449,7 +628,7 @@ const Home = ({ user, onLogout }) => {
         localStorage.setItem(`visas_${user.email}`, JSON.stringify(newVisas));
       }
     }
-    setIsVisaModalOpen(false); // Sınav bittiğinde modalı kapat
+    setIsVisaModalOpen(false);
     setVisaStep('select');
   };
 
@@ -457,30 +636,26 @@ const Home = ({ user, onLogout }) => {
 
   return (
     <div className="home-container" style={{ background: '#FAF7F2', color: '#1e293b' }}>
-      
-      {/* ===== HEADER (TÜM BUTONLAR EN BATIŞ VE DÜZENLİ SIRALANDI) ===== */}
-      <header className="home-header" style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        background: '#ffffff', 
-        padding: '16px 40px', 
-        borderBottom: '2px solid #e2e8f0', 
+
+      <header className="home-header" style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        background: '#ffffff',
+        padding: '16px 40px',
+        borderBottom: '2px solid #e2e8f0',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
         position: 'sticky',
         top: 0,
         zIndex: 100
       }}>
-        {/* Sol Taraf: Logo ve Başlık */}
         <div className="header-brand" style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={() => { setActiveTab('explore'); setSelectedKey(null); }}>
           <span className="brand-logo" style={{ fontSize: '28px' }}>🌍</span>
           <h1 className="brand-title" style={{ fontSize: '22px', margin: 0, color: '#1e293b', fontWeight: 800 }}>Dünya Keşif Rehberi</h1>
         </div>
-        
-        {/* Orta Taraf: Sıralı ve Uyumlu Navigasyon ve Vize Butonları */}
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          
-          <button 
+          <button
             onClick={() => { setActiveTab('explore'); setSelectedKey(null); }}
             style={{
               padding: '10px 20px',
@@ -492,7 +667,6 @@ const Home = ({ user, onLogout }) => {
               fontSize: '0.95rem',
               fontWeight: '700',
               cursor: 'pointer',
-              boxShadow: activeTab === 'explore' ? '0 4px 12px rgba(37, 99, 235, 0.15)' : 'none',
               transition: 'all 0.2s ease',
               display: 'flex',
               alignItems: 'center',
@@ -501,8 +675,8 @@ const Home = ({ user, onLogout }) => {
           >
             🧭 Keşif Rehberi
           </button>
-          
-          <button 
+
+          <button
             onClick={() => { setActiveTab('stories'); setSelectedKey(null); }}
             style={{
               padding: '10px 20px',
@@ -514,7 +688,6 @@ const Home = ({ user, onLogout }) => {
               fontSize: '0.95rem',
               fontWeight: '700',
               cursor: 'pointer',
-              boxShadow: activeTab === 'stories' ? '0 4px 12px rgba(34, 197, 94, 0.15)' : 'none',
               transition: 'all 0.2s ease',
               display: 'flex',
               alignItems: 'center',
@@ -524,8 +697,8 @@ const Home = ({ user, onLogout }) => {
             🎭 Eğlenceli Hikayeler
           </button>
 
-          <button 
-            className="visa-btn" 
+          <button
+            className="visa-btn"
             onClick={() => { setIsVisaModalOpen(true); setVisaStep('select'); }}
             style={{
               padding: '10px 20px',
@@ -536,7 +709,6 @@ const Home = ({ user, onLogout }) => {
               fontSize: '0.95rem',
               fontWeight: '700',
               cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(234, 179, 8, 0.2)',
               transition: 'all 0.2s ease',
               display: 'flex',
               alignItems: 'center',
@@ -546,7 +718,7 @@ const Home = ({ user, onLogout }) => {
             🛂 Vize Sınavına Gir
           </button>
 
-          <button 
+          <button
             onClick={() => { setActiveTab('collection'); setSelectedKey(null); }}
             style={{
               padding: '10px 20px',
@@ -558,7 +730,6 @@ const Home = ({ user, onLogout }) => {
               fontSize: '0.95rem',
               fontWeight: '700',
               cursor: 'pointer',
-              boxShadow: activeTab === 'collection' ? '0 4px 12px rgba(168, 85, 247, 0.15)' : 'none',
               transition: 'all 0.2s ease',
               display: 'flex',
               alignItems: 'center',
@@ -569,14 +740,13 @@ const Home = ({ user, onLogout }) => {
           </button>
         </div>
 
-        {/* Sağ Taraf: Hoş Geldiniz Mesajı ve Çıkış Butonu */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <span className="user-welcome" style={{ color: '#475569', fontSize: '0.95rem', fontWeight: '600' }}>
-            Gezgin: <strong style={{ color: '#1e293b' }}>{user?.firstName || 'Kaşif'}</strong> 👋
+            Altın: <strong style={{ color: '#d97706' }}>{userGold} 💰</strong> | Gezgin: <strong style={{ color: '#1e293b' }}>{user?.firstName || 'Kaşif'}</strong> 👋
           </span>
-          <button 
-            className="logout-btn" 
-            onClick={onLogout}
+          <button
+            className="logout-btn"
+            onClick={() => setShowLogoutConfirm(true)}
             style={{
               padding: '8px 16px',
               borderRadius: '10px',
@@ -594,13 +764,11 @@ const Home = ({ user, onLogout }) => {
         </div>
       </header>
 
-      {/* ===== HERO ===== */}
       <section className="home-hero">
         <h2 style={{ color: '#1e293b', fontWeight: '800' }}>Dünyayı Keşfetmeye Hazır Mısın?</h2>
         <p style={{ color: '#475569', fontWeight: '500' }}>Aşağıdaki renkli kartlardan bir ülkeyi seç, eğlenceli bilgilerini keşfet!</p>
       </section>
 
-      {/* ===== SEKMELİ ANA İÇERİK ===== */}
       {activeTab === 'explore' ? (
         <main className="home-main">
           <div className="country-grid">
@@ -610,14 +778,13 @@ const Home = ({ user, onLogout }) => {
                 <div
                   key={key}
                   className="country-card"
-                  style={{ 
+                  style={{
                     '--accent-color': data.color,
                     ...styles.card,
                     borderColor: data.color
                   }}
                   onClick={() => openCountry(key)}
                 >
-                  {/* 1. Ülke Çizgi Film Resmi (Lock overlay if locked) */}
                   <div style={styles.imageContainer}>
                     <img src={data.image} alt={data.name} style={styles.image} />
                     {!isApproved && (
@@ -630,13 +797,12 @@ const Home = ({ user, onLogout }) => {
 
                   <div style={styles.cardContent}>
                     <h2 style={{ ...styles.countryName, color: data.color }}>{data.name}</h2>
-                    
-                    {/* 2. Mühür / Pasaport Damgası */}
+
                     <div style={styles.stampWrapper}>
-                      <div style={{ 
-                        ...styles.stampCircle, 
-                        borderColor: isApproved ? '#16a34a' : '#ef4444', 
-                        color: isApproved ? '#16a34a' : '#ef4444' 
+                      <div style={{
+                        ...styles.stampCircle,
+                        borderColor: isApproved ? '#16a34a' : '#ef4444',
+                        color: isApproved ? '#16a34a' : '#ef4444'
                       }}>
                         <span style={styles.stampText}>PASAPORT</span>
                         <span style={styles.stampIcon}>{isApproved ? "🛂" : "❌"}</span>
@@ -659,19 +825,17 @@ const Home = ({ user, onLogout }) => {
         </main>
       )}
 
-      {/* ===== VİZE UYARI TOAST ===== */}
       {showVisaAlert && (
         <div className="visa-alert-toast">
           Bu ülkeye giriş yapmak için vize almanız gerekmektedir. Sınav başlatılıyor...
         </div>
       )}
 
-      {/* ===== VİZE MODAL ===== */}
       {isVisaModalOpen && (
         <div className="modal-backdrop" onClick={() => setIsVisaModalOpen(false)}>
           <div className="modal-content visa-modal" onClick={e => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={() => setIsVisaModalOpen(false)}>&times;</button>
-            
+
             {visaStep === 'select' && (
               <div className="visa-step-select">
                 <h2>🌍 Vize Başvurusu</h2>
@@ -730,17 +894,13 @@ const Home = ({ user, onLogout }) => {
         </div>
       )}
 
-      {/* ===== ÜLKE DETAY MODAL ===== */}
       {selectedCountry && (
         <div className="modal-backdrop" onClick={closeCountry}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeCountry}>&times;</button>
-            
+
             <div className="modal-body-split">
-              {/* SOL: DETAY BİLGİ KARTLARI (Yemekler, Tarih/Doğa, Festivaller) */}
               <div style={styles.infoCardsColumn}>
-                
-                {/* Başlık Kartı */}
                 <div style={{ ...styles.modalCountryHeader, borderBottom: `3px solid ${selectedCountry.color}` }}>
                   <span style={styles.detailsFlag}>{selectedCountry.flag}</span>
                   <div>
@@ -749,7 +909,6 @@ const Home = ({ user, onLogout }) => {
                   </div>
                 </div>
 
-                {/* Genel Bilgiler Tablosu ve İlginç Bilgi */}
                 <div style={styles.generalInfoCard} className="glass">
                   <table className="info-table">
                     <tbody>
@@ -764,7 +923,6 @@ const Home = ({ user, onLogout }) => {
                   </div>
                 </div>
 
-                {/* 1. Başlık: Yöresel Yemekler */}
                 <div style={styles.topicCard} className="glass">
                   <div style={{ ...styles.topicImageWrapper, borderColor: selectedCountry.color }}>
                     <img src={selectedCountry.foods.image} alt={selectedCountry.foods.title} style={styles.topicImage} />
@@ -775,7 +933,6 @@ const Home = ({ user, onLogout }) => {
                   </div>
                 </div>
 
-                {/* 2. Başlık: Tarihi Yerler ve Doğal Güzellikler */}
                 <div style={styles.topicCard} className="glass">
                   <div style={{ ...styles.topicImageWrapper, borderColor: selectedCountry.color }}>
                     <img src={selectedCountry.landmarks.image} alt={selectedCountry.landmarks.title} style={styles.topicImage} />
@@ -786,7 +943,6 @@ const Home = ({ user, onLogout }) => {
                   </div>
                 </div>
 
-                {/* 3. Başlık: Festivaller */}
                 <div style={styles.topicCard} className="glass">
                   <div style={{ ...styles.topicImageWrapper, borderColor: selectedCountry.color }}>
                     <img src={selectedCountry.festivals.image} alt={selectedCountry.festivals.title} style={styles.topicImage} />
@@ -796,57 +952,30 @@ const Home = ({ user, onLogout }) => {
                     <p style={styles.topicDesc}>{selectedCountry.festivals.desc}</p>
                   </div>
                 </div>
-
               </div>
 
-              {/* SAĞ: SABİT DURAN ÇİZGİ FİLM TARZI RESİM VE ETKİLEŞİM PANELİ */}
               <div style={{ ...styles.stickyCharacterCard, borderColor: selectedCountry.color }} className="glass">
                 <h4 style={styles.charTitle}>{selectedCountry.name} Kültür Kartı</h4>
-                
-                {/* Çerçeveli Çizgi Film Resmi */}
                 <div style={{ ...styles.mascotImageWrapper, borderColor: selectedCountry.color }}>
                   <img src={selectedCountry.image} alt={selectedCountry.name} style={styles.mascotImage} />
                 </div>
-
                 <div className="mascot-mood-badge" style={{ marginBottom: '16px' }}>
                   Durum: <strong>{mascotMood}</strong>
                 </div>
-
-                {/* Etkileşim Butonları */}
                 <div className="interactive-widget" style={{ width: '100%' }}>
                   <p className="widget-title" style={{ color: '#94a3b8' }}>Etkileşime Geç!</p>
                   <div className="widget-buttons">
-                    <button
-                      className="widget-action-btn"
-                      onClick={() => setShowSpinWheel(true)}
-                      style={{ background: '#d97706' }}
-                    >
-                      🎡 Çark Çevir Hediye Kazan
-                    </button>
-                    <button
-                      className="widget-action-btn"
-                      onClick={() => setShowMarket(true)}
-                      style={{ background: '#2563eb' }}
-                    >
-                      🛒 Pazarına Çık
-                    </button>
-                    <button
-                      className="widget-action-btn"
-                      onClick={() => setShowPhoto(true)}
-                      style={{ background: '#dc2626' }}
-                    >
-                      📸 Fotoğraf Çekin
-                    </button>
+                    <button className="widget-action-btn" onClick={() => setShowSpinWheel(true)} style={{ background: '#d97706' }}>🎡 Çark</button>
+                    <button className="widget-action-btn" onClick={() => setShowMarket(true)} style={{ background: '#2563eb' }}>🛒 Pazar</button>
+                    <button className="widget-action-btn" onClick={() => setShowPhoto(true)} style={{ background: '#dc2626' }}>📸 Foto</button>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       )}
 
-      {/* ===== ÇARK ÇEVİR MODAL ===== */}
       {showSpinWheel && selectedKey && COUNTRY_ITEMS[selectedKey] && (
         <SpinWheelModal
           countryKey={selectedKey}
@@ -854,11 +983,11 @@ const Home = ({ user, onLogout }) => {
           countryColor={COUNTRY_PROFILES[selectedKey].color}
           prizes={COUNTRY_ITEMS[selectedKey].wheelPrizes}
           userEmail={user?.email}
+          updateGold={updateGold}
           onClose={() => setShowSpinWheel(false)}
         />
       )}
 
-      {/* ===== PAZAR MODAL ===== */}
       {showMarket && selectedKey && COUNTRY_ITEMS[selectedKey] && (
         <MarketModal
           countryKey={selectedKey}
@@ -866,11 +995,20 @@ const Home = ({ user, onLogout }) => {
           countryColor={COUNTRY_PROFILES[selectedKey].color}
           marketItems={COUNTRY_ITEMS[selectedKey].marketItems}
           userEmail={user?.email}
+          userGold={userGold}
+          updateGold={updateGold}
           onClose={() => setShowMarket(false)}
         />
       )}
 
-      {/* ===== FOTOĞRAF MODAL ===== */}
+      {showMiniGames && (
+        <MiniGamesModal
+          onClose={() => setShowMiniGames(false)}
+          userGold={userGold}
+          updateGold={updateGold}
+        />
+      )}
+
       {showPhoto && selectedKey && COUNTRY_ITEMS[selectedKey] && (
         <PhotoModal
           countryKey={selectedKey}
@@ -885,25 +1023,42 @@ const Home = ({ user, onLogout }) => {
         />
       )}
 
+      {showLogoutConfirm && (
+        <div className="modal-backdrop">
+          <div className="modal-content" style={{ maxWidth: '400px', textAlign: 'center', color: '#f8fafc' }}>
+            <h2>🚪 Çıkış Yap</h2>
+            <p style={{ marginTop: '10px' }}>Çıkış yapmak istediğinize emin misiniz?</p>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '20px' }}>
+              <button
+                onClick={onLogout}
+                style={{ padding: '10px 20px', borderRadius: '8px', border: 'none', background: '#ef4444', color: 'white', cursor: 'pointer', fontWeight: 'bold' }}
+              >Evet, Çıkış Yap</button>
+              <button
+                onClick={() => setShowLogoutConfirm(false)}
+                style={{ padding: '10px 20px', borderRadius: '8px', border: '1px solid #cbd5e1', background: 'white', color: '#1e293b', cursor: 'pointer', fontWeight: 'bold' }}
+              >İptal</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
 
-// ===== KART VE MODAL İÇİN SATIR İÇİ STİLLER =====
 const styles = {
-  // Kart Stilleri (Görseldeki kapsül tasarımı, genişlik çökmesini engellemek için width: 100% eklendi)
-  card: { 
-    borderRadius: '45px', 
-    borderWidth: '4px', 
-    borderStyle: 'solid', 
-    overflow: 'hidden', 
-    display: 'flex', 
-    flexDirection: 'column', 
-    height: '425px', 
-    width: '100%', // Genişlik çökmesini önler
-    cursor: 'pointer', 
-    position: 'relative', 
-    background: '#ffffff', // Görseldeki gibi kart arka planı tamamen beyaz
+  card: {
+    borderRadius: '45px',
+    borderWidth: '4px',
+    borderStyle: 'solid',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '425px',
+    width: '100%',
+    cursor: 'pointer',
+    position: 'relative',
+    background: '#ffffff',
     padding: 0,
     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.05)'
   },
@@ -911,7 +1066,7 @@ const styles = {
   image: { width: '100%', height: '100%', objectFit: 'cover' },
   lockOverlay: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15,23,42,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 },
   cutoutCurve: { position: 'absolute', bottom: '-1px', left: '0', right: '0', height: '30px', backgroundColor: '#ffffff', borderTopLeftRadius: '50% 100%', borderTopRightRadius: '50% 100%' },
-  
+
   cardContent: { padding: '16px 12px 24px 12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', flex: 1, width: '100%', boxSizing: 'border-box' },
   countryName: { fontSize: '1.5rem', fontWeight: '800', margin: '5px 0 10px 0', textAlign: 'center', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif' },
   stampWrapper: { position: 'relative', width: '75px', height: '75px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto' },
@@ -924,24 +1079,24 @@ const styles = {
   detailsContainer: { width: '100%', minHeight: '85vh', display: 'flex', flexDirection: 'column', padding: '40px 20px', boxSizing: 'border-box' },
   detailsContent: { maxWidth: '1100px', margin: '0 auto', width: '100%' },
   backButton: { padding: '10px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', border: '2px solid', fontSize: '0.95rem', fontWeight: '700', cursor: 'pointer', marginBottom: '30px', transition: 'all 0.2s ease', color: '#fff' },
-  
+
   detailsLayoutGrid: { display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px', alignItems: 'start' },
   infoCardsColumn: { display: 'flex', flexDirection: 'column', gap: '24px' },
-  
+
   modalCountryHeader: { display: 'flex', gap: '20px', alignItems: 'center', paddingBottom: '20px', marginBottom: '10px' },
   detailsFlag: { fontSize: '3.6rem' },
   detailsTitle: { fontSize: '2.5rem', fontWeight: '900', margin: 0, color: '#fff' },
   detailsCapital: { fontSize: '1.25rem', margin: '6px 0 0 0', color: '#94a3b8' },
-  
+
   generalInfoCard: { borderRadius: '24px', padding: '24px', border: '1px solid rgba(255,255,255,0.08)', background: '#1e293b' },
-  
+
   topicCard: { borderRadius: '24px', display: 'flex', padding: '20px', gap: '20px', border: '1px solid rgba(255,255,255,0.08)', alignItems: 'center', background: '#1e293b' },
   topicImageWrapper: { width: '220px', minWidth: '220px', height: '145px', overflow: 'hidden', borderRadius: '16px', border: '3px solid', padding: '4px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' },
   topicImage: { width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' },
   topicTextWrapper: { display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1 },
   topicTitle: { fontSize: '1.35rem', fontWeight: '800', margin: '0 0 10px 0' },
   topicDesc: { fontSize: '1.05rem', lineHeight: '1.55', margin: 0, color: '#e2e8f0' },
-  
+
   stickyCharacterCard: { position: 'sticky', top: '100px', borderRadius: '24px', border: '3.5px solid', padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', background: '#1e293b' },
   charTitle: { fontSize: '1.25rem', color: '#fff', margin: '0 0 16px 0', fontWeight: '800' },
   mascotImageWrapper: { width: '220px', height: '170px', borderRadius: '16px', border: '3.5px solid', padding: '4px', overflow: 'hidden', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' },
