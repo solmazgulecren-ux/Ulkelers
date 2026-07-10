@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { visaQuestions } from '../data/visaQuestions';
+import MenuBar from './MenuBar';
 
 import russiaImg from '../assets/mascots/russia_chibi.png';
 import turkeyImg from '../assets/mascots/turkey_chibi.png';
@@ -512,19 +513,19 @@ export default function HomeScreen({ user, onLogout }) {
   return (
     <div className="home-container">
       {/* Top Navbar */}
-      <header className="home-header">
-        <div className="header-brand">
-          <span className="brand-logo">🌍</span>
-          <h1 className="brand-title">Dünya Rehberi</h1>
-        </div>
-        <div className="header-user-info">
-          <button className={`nav-tab-btn ${currentTab === 'explore' ? 'active' : ''}`} onClick={() => setCurrentTab('explore')} style={{ marginRight: '8px' }}>🧭 Keşfet</button>
-          <button className={`nav-tab-btn ${currentTab === 'stories' ? 'active' : ''}`} onClick={() => { setCurrentTab('stories'); setSelectedStoryCountry(null); setShowHistory(false); }} style={{ marginRight: '16px' }}>🎭 Eğlenceli Hikayeler</button>
-          <button className="visa-btn" onClick={() => { setIsVisaModalOpen(true); setVisaStep('select'); }}>🛂 Vize Al ve Gez</button>
-          <span className="user-welcome">Hoş geldin, <strong>{user?.firstName || 'Kaşif'} {user?.lastName || ''}</strong>! 👋</span>
-          <button className="logout-btn" onClick={onLogout}>Güvenli Çıkış</button>
-        </div>
-      </header>
+      <MenuBar 
+        currentTab={currentTab} 
+        setCurrentTab={(tab) => {
+          setCurrentTab(tab);
+          if (tab === 'stories') {
+            setSelectedStoryCountry(null);
+            setShowHistory(false);
+          }
+        }} 
+        user={user} 
+        onLogout={onLogout} 
+        onOpenVisaModal={() => { setIsVisaModalOpen(true); setVisaStep('select'); }}
+      />
 
       {currentTab === 'explore' ? (
         <>
@@ -814,63 +815,6 @@ export default function HomeScreen({ user, onLogout }) {
           display: flex;
           flex-direction: column;
           font-family: var(--primary-font);
-        }
-
-        .home-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          background: #ffffff;
-          padding: 16px 40px;
-          border-bottom: 2px solid #e2e8f0;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-
-        .header-brand {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .brand-logo {
-          font-size: 28px;
-        }
-
-        .brand-title {
-          font-size: 24px;
-          margin: 0;
-          color: #1e293b;
-          font-weight: 700;
-        }
-
-        .header-user-info {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-        }
-
-        .user-welcome {
-          font-size: 15px;
-          color: #475569;
-        }
-
-        .logout-btn {
-          font-family: var(--primary-font);
-          font-size: 14px;
-          font-weight: 600;
-          color: #ef4444;
-          background: #fef2f2;
-          border: 1px solid #fee2e2;
-          padding: 8px 16px;
-          border-radius: var(--border-radius-md);
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .logout-btn:hover {
-          background: #ef4444;
-          color: #ffffff;
-          border-color: #ef4444;
         }
 
         .home-hero {
