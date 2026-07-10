@@ -1,7 +1,12 @@
 // src/components/Home.jsx
 import React, { useEffect, useState } from 'react';
 import { visaQuestions } from '../data/visaQuestions';
+import { COUNTRY_ITEMS } from '../data/countryItems';
 import FunStoriesScreen from './FunStoriesScreen';
+import SpinWheelModal from './SpinWheelModal';
+import MarketModal from './MarketModal';
+import PhotoModal from './PhotoModal';
+import CollectionScreen from './CollectionScreen';
 import './Home.css';
 
 // ===== ÜLKE PROFİLLERİ =====
@@ -358,7 +363,7 @@ const COUNTRY_PROFILES = {
 
 const Home = ({ user, onLogout }) => {
   // ===== STATE'LER =====
-  const [activeTab, setActiveTab] = useState('explore'); // 'explore' | 'stories'
+  const [activeTab, setActiveTab] = useState('explore'); // 'explore' | 'stories' | 'collection'
   const [selectedKey, setSelectedKey] = useState(null);
   const [mascotMood, setMascotMood] = useState('Mutlu! 😊');
   const [extraClass, setExtraClass] = useState('');
@@ -369,6 +374,11 @@ const Home = ({ user, onLogout }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showVisaAlert, setShowVisaAlert] = useState(false);
+
+  // New interactive modal states
+  const [showSpinWheel, setShowSpinWheel] = useState(false);
+  const [showMarket, setShowMarket] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
 
   // ===== VİZE VERİLERİNİ LOCALSTORAGE'DAN YÜKLE =====
   useEffect(() => {
@@ -535,6 +545,28 @@ const Home = ({ user, onLogout }) => {
           >
             🛂 Vize Sınavına Gir
           </button>
+
+          <button 
+            onClick={() => { setActiveTab('collection'); setSelectedKey(null); }}
+            style={{
+              padding: '10px 20px',
+              borderRadius: '12px',
+              border: '2px solid',
+              borderColor: activeTab === 'collection' ? '#a855f7' : '#e2e8f0',
+              background: activeTab === 'collection' ? '#a855f7' : '#ffffff',
+              color: activeTab === 'collection' ? '#ffffff' : '#475569',
+              fontSize: '0.95rem',
+              fontWeight: '700',
+              cursor: 'pointer',
+              boxShadow: activeTab === 'collection' ? '0 4px 12px rgba(168, 85, 247, 0.15)' : 'none',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            🎒 Koleksiyonum
+          </button>
         </div>
 
         {/* Sağ Taraf: Hoş Geldiniz Mesajı ve Çıkış Butonu */}
@@ -617,9 +649,13 @@ const Home = ({ user, onLogout }) => {
             })}
           </div>
         </main>
-      ) : (
+      ) : activeTab === 'stories' ? (
         <main className="home-main" style={{ background: '#FAF7F2' }}>
           <FunStoriesScreen />
+        </main>
+      ) : (
+        <main className="home-main" style={{ background: '#FAF7F2' }}>
+          <CollectionScreen userEmail={user?.email} />
         </main>
       )}
 
@@ -776,20 +812,31 @@ const Home = ({ user, onLogout }) => {
                   Durum: <strong>{mascotMood}</strong>
                 </div>
 
-                {/* Maskot Etkileşim Butonları */}
+                {/* Etkileşim Butonları */}
                 <div className="interactive-widget" style={{ width: '100%' }}>
-                  <p className="widget-title" style={{ color: '#94a3b8' }}>Karakterle Etkileşime Geç!</p>
+                  <p className="widget-title" style={{ color: '#94a3b8' }}>Etkileşime Geç!</p>
                   <div className="widget-buttons">
-                    {selectedCountry.interactiveActions.map((action, i) => (
-                      <button
-                        key={i}
-                        className="widget-action-btn"
-                        onClick={() => handleActionClick(action)}
-                        style={{ background: selectedCountry.color }}
-                      >
-                        {action}
-                      </button>
-                    ))}
+                    <button
+                      className="widget-action-btn"
+                      onClick={() => setShowSpinWheel(true)}
+                      style={{ background: '#d97706' }}
+                    >
+                      🎡 Çark Çevir Hediye Kazan
+                    </button>
+                    <button
+                      className="widget-action-btn"
+                      onClick={() => setShowMarket(true)}
+                      style={{ background: '#2563eb' }}
+                    >
+                      🛒 Pazarına Çık
+                    </button>
+                    <button
+                      className="widget-action-btn"
+                      onClick={() => setShowPhoto(true)}
+                      style={{ background: '#dc2626' }}
+                    >
+                      📸 Fotoğraf Çekin
+                    </button>
                   </div>
                 </div>
               </div>
@@ -797,6 +844,45 @@ const Home = ({ user, onLogout }) => {
 
           </div>
         </div>
+      )}
+
+      {/* ===== ÇARK ÇEVİR MODAL ===== */}
+      {showSpinWheel && selectedKey && COUNTRY_ITEMS[selectedKey] && (
+        <SpinWheelModal
+          countryKey={selectedKey}
+          countryName={COUNTRY_PROFILES[selectedKey].name}
+          countryColor={COUNTRY_PROFILES[selectedKey].color}
+          prizes={COUNTRY_ITEMS[selectedKey].wheelPrizes}
+          userEmail={user?.email}
+          onClose={() => setShowSpinWheel(false)}
+        />
+      )}
+
+      {/* ===== PAZAR MODAL ===== */}
+      {showMarket && selectedKey && COUNTRY_ITEMS[selectedKey] && (
+        <MarketModal
+          countryKey={selectedKey}
+          countryName={COUNTRY_PROFILES[selectedKey].name}
+          countryColor={COUNTRY_PROFILES[selectedKey].color}
+          marketItems={COUNTRY_ITEMS[selectedKey].marketItems}
+          userEmail={user?.email}
+          onClose={() => setShowMarket(false)}
+        />
+      )}
+
+      {/* ===== FOTOĞRAF MODAL ===== */}
+      {showPhoto && selectedKey && COUNTRY_ITEMS[selectedKey] && (
+        <PhotoModal
+          countryKey={selectedKey}
+          countryName={COUNTRY_PROFILES[selectedKey].name}
+          countryColor={COUNTRY_PROFILES[selectedKey].color}
+          countryFlag={COUNTRY_PROFILES[selectedKey].flag}
+          mascotName={COUNTRY_PROFILES[selectedKey].mascotName}
+          photoBg={COUNTRY_ITEMS[selectedKey].photoBg}
+          photoScene={COUNTRY_ITEMS[selectedKey].photoScene}
+          userEmail={user?.email}
+          onClose={() => setShowPhoto(false)}
+        />
       )}
 
     </div>

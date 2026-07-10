@@ -9,22 +9,22 @@ export default function MenuBar({ currentTab, setCurrentTab, user, onLogout, onO
           <h1 className="brand-title">Dünya Rehberi</h1>
         </div>
         <div className="header-user-info">
-          <button 
-            className={`nav-tab-btn ${currentTab === 'explore' ? 'active' : ''}`} 
-            onClick={() => setCurrentTab('explore')} 
+          <button
+            className={`nav-tab-btn ${currentTab === 'explore' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('explore')}
             style={{ marginRight: '8px' }}
           >
             🧭 Keşfet
           </button>
-          <button 
-            className={`nav-tab-btn ${currentTab === 'stories' ? 'active' : ''}`} 
-            onClick={() => setCurrentTab('stories')} 
+          <button
+            className={`nav-tab-btn ${currentTab === 'stories' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('stories')}
             style={{ marginRight: '16px' }}
           >
             🎭 Eğlenceli Hikayeler
           </button>
           <button className="visa-btn" onClick={onOpenVisaModal}>
-            办证 🛂 Vize Al ve Gez
+            Vize Al
           </button>
           <span className="user-welcome">
             Hoş geldin, <strong>{user?.firstName || 'Kaşif'} {user?.lastName || ''}</strong>! 👋
