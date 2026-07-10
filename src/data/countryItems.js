@@ -342,5 +342,25 @@ export const COUNTRY_ITEMS = {
     ],
     photoBg: '🏛️',
     photoScene: 'Santorini Evleri'
+  },
+  bosnia: {
+    wheelPrizes: [
+      { name: 'Boşnak Kahvesi', icon: '☕🫖' },
+      { name: 'Stari Most Hatırası', icon: '🌉💜' },
+      { name: 'El Yapımı Halı', icon: '🧶🎨' },
+      { name: 'Filigran Takı', icon: '💍✨' },
+      { name: 'Bosna Bayrağı', icon: '🇧🇦🏳️' },
+      { name: 'Geleneksel Fes', icon: '🎩🟥' },
+    ],
+    marketItems: [
+      { name: 'Cevapçiça Tabağı', icon: '🥩🧅', price: 250 },
+      { name: 'Burek', icon: '🥐🥩', price: 180 },
+      { name: 'Boşnak Kahvesi', icon: '☕🫖', price: 120 },
+      { name: 'Baklava', icon: '🍯🥜', price: 200 },
+      { name: 'Tufahija', icon: '🍎🍯', price: 160 },
+      { name: 'Sirnica', icon: '🧀🥧', price: 140 },
+    ],
+    photoBg: '🌉',
+    photoScene: 'Stari Most Köprüsü'
   }
 }
