@@ -1,0 +1,97 @@
+/* src/Home.css */
+
+:root {
+  --bg-primary: #FAF7F2;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --border-color: #E2DCD5;
+  --text-primary: #2C2A29;
+  --text-secondary: #706B64;
+  --card-shadow: 0 12px 36px rgba(112, 107, 100, 0.1);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0F172A;
+  --bg-glass: rgba(30, 41, 59, 0.85);
+  --border-color: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Karakterlerin Dans Animasyonları */
+@keyframes characterDance {
+  0%, 100% { transform: translateY(0) rotate(0deg) scaleY(1); }
+  25% { transform: translateY(-10px) rotate(-2deg) scaleY(0.97); }
+  50% { transform: translateY(3px) rotate(0deg) scaleY(1.03); }
+  75% { transform: translateY(-10px) rotate(2deg) scaleY(0.97); }
+}
+
+@keyframes armWaveLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+}
+
+@keyframes armWaveRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-50deg); }
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: skewY(0deg) scaleX(1); }
+  25% { transform: skewY(5deg) scaleX(0.98); }
+  50% { transform: skewY(-2deg) scaleX(1.02); }
+  75% { transform: skewY(-5deg) scaleX(0.98); }
+}
+
+/* Bilgi kartındaki emojilerin uçuşma animasyonu */
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-50px) rotate(180deg); opacity: 0.8; }
+}
+
+/* Genel Yapılar */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.shadow-premium {
+  box-shadow: var(--card-shadow);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* 6 Üstte, 6 Altta Kart Hizalama Grid Sistemi */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .country-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 900px) {
+  .country-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .country-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .country-grid { grid-template-columns: 1fr; }
+}
+
+.floating-emoji {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0.15;
+  font-size: 1.5rem;
+}
