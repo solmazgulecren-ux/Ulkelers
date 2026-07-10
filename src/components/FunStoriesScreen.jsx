@@ -81,7 +81,7 @@ const FUN_STORIES = {
   },
   italy: {
     mascotName: "İtalyan Şef",
-    story: "İtalyan Şef spagetti pişirirken makarnaları o kadar havaya fırlattı ki, makarnalar Pisa Kulesi'ne dolandı ve kuleyi düzeltmek yerine daha da eğri görünmesine sebob oldu. Şef panik yapıp 'Bu yeni bir sos mimarisi!' diyerek turistlere eğri tabakta spagetti servis etmeye başladı!",
+    story: "İtalyan Şef spagetti pişirirken makarnaları o kadar havaya fırlattı ki, makarnalar Pisa Kulesi'ne dolandı ve kuleyi düzeltmek yerine daha da eğri görünmesine sebep oldu. Şef panik yapıp 'Bu yeni bir sos mimarisi!' diyerek turistlere eğri tabakta spagetti servis etmeye başladı!",
     history: "İtalya, antik Roma İmparatorluğu'nun beşiğidir. Orta Çağ ve Rönesans döneminde Floransa, Venedik gibi bağımsız şehir devletlerine bölünen İtalya, 1861 yılında Garibaldi liderliğindeki birleşme hareketiyle (Risorgimento) tek bir krallık olmuştur."
   },
   spain: {
