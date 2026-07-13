@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SpinWheelModal({ countryKey, countryName, countryColor, prizes, userEmail, onClose, onWin }) {
+export default function SpinWheelModal({ countryKey, countryName, countryColor, prizes, userEmail, onClose, onWin, updateGold }) {
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [wonPrize, setWonPrize] = useState(null);
@@ -38,6 +38,9 @@ export default function SpinWheelModal({ countryKey, countryName, countryColor, 
       existing.push(newGift);
       localStorage.setItem(storageKey, JSON.stringify(existing));
       if (onWin) onWin(newGift);
+
+      // 100 altın bonus ödülü
+      if (updateGold) updateGold(100, `Çark çevirme ödülü: ${prize.name}`);
     }, 4000);
   };
 
@@ -141,8 +144,11 @@ export default function SpinWheelModal({ countryKey, countryName, countryColor, 
               {wonPrize.icon}
             </div>
             <h3 style={{ color: '#16a34a', margin: '0 0 8px', fontSize: '28px', fontWeight: '900' }}>Tebrikler! 🎉</h3>
-            <p style={{ color: '#15803d', margin: 0, fontWeight: '700', fontSize: '18px' }}>
+            <p style={{ color: '#15803d', margin: '0 0 8px', fontWeight: '700', fontSize: '18px' }}>
               <strong style={{ color: countryColor }}>{wonPrize.name}</strong> kazandın! Koleksiyonuna eklendi.
+            </p>
+            <p style={{ color: '#d97706', fontWeight: '800', fontSize: '16px', margin: 0 }}>
+              +100 💰 Altın kazandın!
             </p>
           </div>
         )}

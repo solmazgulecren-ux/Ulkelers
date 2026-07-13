@@ -593,6 +593,22 @@ const Home = ({ user, onLogout }) => {
     }
   }, [user]);
 
+  // ===== ALTIN GÜNCELLEME (kazanma/harcama) =====
+  const updateGold = (amount, reason) => {
+    setUserGold(prev => {
+      const newGold = Math.max(0, prev + amount);
+      if (user && user.email) {
+        localStorage.setItem(`gold_${user.email}`, String(newGold));
+        // Kayıt günlüğü
+        const logKey = `gold_log_${user.email}`;
+        const log = JSON.parse(localStorage.getItem(logKey) || '[]');
+        log.push({ amount, reason, total: newGold, date: new Date().toLocaleDateString('tr-TR') });
+        localStorage.setItem(logKey, JSON.stringify(log));
+      }
+      return newGold;
+    });
+  };
+
   // ===== ÜLKE TIKLANDIĞINDA AÇILMA / VİZE SINAVI TETİKLEME =====
   const openCountry = (key) => {
     // EĞER KULLANICININ VİZESİ YOKSA, DOĞRUDAN O ÜLKENİN SINAVINI AÇ! (Böylece vize kısmı kaybolmaz)

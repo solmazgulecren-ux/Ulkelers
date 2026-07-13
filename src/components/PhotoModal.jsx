@@ -79,8 +79,8 @@ export default function PhotoModal({ countryKey, countryName, countryColor, coun
           transition: 'all 0.3s ease',
           cursor: 'pointer'
         }}
-        onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)'}
-        onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-2deg)'}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-2deg)'}
         >
           {/* Background Scene (Real Image) */}
           <div style={{
@@ -141,7 +141,7 @@ export default function PhotoModal({ countryKey, countryName, countryColor, coun
               </div>
             </div>
           </div>
-          
+
           {/* Polaroid style bottom text */}
           <div style={{
             background: '#ffffff',

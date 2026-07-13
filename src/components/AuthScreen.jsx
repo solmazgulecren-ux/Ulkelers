@@ -190,7 +190,7 @@ export default function AuthScreen({ onLoginSuccess }) {
       {successMsg && <div className="status-banner success-banner">{successMsg}</div>}
 
       <div className="unified-auth-grid">
-        
+
         {/* Left Column: Giriş Yap Form Card */}
         <div className="auth-column-card">
           <h2 className="card-title">Giriş Yap</h2>
@@ -207,7 +207,7 @@ export default function AuthScreen({ onLoginSuccess }) {
                 required
               />
             </div>
-            
+
             <div className="form-input-group">
               <label>Şifre</label>
               <div className="password-field-container">
@@ -274,7 +274,7 @@ export default function AuthScreen({ onLoginSuccess }) {
                 required
               />
             </div>
-            
+
             <div className="form-input-group">
               <label>Soyad</label>
               <input
@@ -359,10 +359,10 @@ export default function AuthScreen({ onLoginSuccess }) {
             <div className="dictator-speech-bubble">Kuzey Kore füzemi fırlatırım ha! 🚀</div>
             <div className="dictator-label">Kuzey Kore</div>
             <div className="dictator-img-container" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img 
-                src={kimJongUnImg} 
-                alt="Kim Jong-un" 
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+              <img
+                src={kimJongUnImg}
+                alt="Kim Jong-un"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
             </div>
           </div>
