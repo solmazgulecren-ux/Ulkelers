@@ -1,16 +1,40 @@
-# React + Vite
+# 🌍 Ulkelers 
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ulkelers, kullanıcıların dünyayı interaktif ve eğlenceli bir şekilde keşfetmesini sağlayan, React tabanlı bir oyunlaştırma (gamification) ve simülasyon projesidir. 
 
-Currently, two official plugins are available:
+Proje, standart bir gezi uygulamasından sıyrılarak; kullanıcılara ülkelerin kültürel dokularını hikaye kitabı (storybook) tarzı tasarımlar, yapay zeka ile üretilmiş 2D maskotlar ve etkileşimli ödül sistemleriyle sunar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Temel Özellikler
 
-## React Compiler
+* **🔐 Güvenli Giriş ve Kayıt:** Kullanıcıların ilerlemelerini kaydedebilmeleri için tasarlanmış, modern ve kullanıcı dostu kimlik doğrulama arayüzü.
+* **🗺️ Etkileşimli Ülke Kartları:** Türkiye, Japonya, Fransa, Bosna Hersek gibi ülkelerin ikonik manzaralarını ve kültürel detaylarını yansıtan dikey formatlı, hikaye tarzı keşif kartları.
+* **🎮 Oyunlaştırma ve Ödül Sistemi:** Arayüz deneyimini sıradanlıktan çıkaran eğlenceli mini oyunlar. Kullanıcılar görevleri tamamladıkça "altın" gibi sanal ödüller kazanarak motivasyonlarını artırırlar.
+* **🛂 Vize Başvuru Simülasyonu:** Kullanıcıların interaktif bir şekilde deneyimleyebildiği, özel veri altyapısıyla (visaQuestions) desteklenen vize soru-cevap ekranları.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Kullanılan Teknolojiler
 
-## Expanding the Oxlint configuration
+* **Frontend:** React.js, Vite
+* **Tasarım / UI:** Özel 2D Vektörel İllüstrasyonlar, Dinamik CSS
+* **Versiyon Kontrolü:** Git & GitHub (Takım çalışması ve branch/merge yönetimi)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Projeyi Bilgisayarında Çalıştırma (Kurulum)
+
+Projeyi yerel ortamınızda (localhost) çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
+1. Projeyi bilgisayarınıza klonlayın:
+   ```bash
+   git clone [https://github.com/solmazgulecren-ux/Ulkelers.git](https://github.com/solmazgulecren-ux/Ulkelers.git)
+Proje dizinine gidin:
+
+Bash
+cd Ulkelers
+Gerekli bağımlılıkları (paketleri) yükleyin:
+
+Bash
+npm install
+Geliştirme sunucusunu başlatın:
+
+Bash
+npm run dev
+👥 Geliştirici Ekip
+Bu proje, GitHub üzerinden eşzamanlı takım çalışması yürütülerek, arayüz (UI/UX) tasarımı, yönlendirme mimarisi ve Git birleştirme stratejileri (merge conflict resolution) başarıyla uygulanarak geliştirilmiştir.
